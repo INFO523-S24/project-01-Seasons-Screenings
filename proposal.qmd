@@ -54,3 +54,34 @@ We will look at the correlations between movie features (such as year of produci
 ## Analysis plan
 
 -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+
+Question1:
+
+    Data Preparation
+        Variables Involved: Title, release year, genre(s), duration, ratings.
+        Variables to be Created:Title Length(Calculate the number of characters in each movie title),Rating Quartile: Categorize movies based on their rating quartile for easier analysis,Genre Count: Count of genres per movie, as movies might belong to multiple genres.
+        Data Cleaning: cleaning the data for inconsistencies, missing values, and outliers. 
+
+    Trend Analysis:
+        Genre Analysis: Determine the most common genres among holiday movies in the selected rating range.
+        Duration Analysis: Examine if there's a preferred movie length that correlates with higher ratings within the 3rd to 4th quartile range and how this preference has changed.
+        Title Length Analysis: Investigate the relationship between the length of movie titles and their ratings.
+        Yearly Rating Analysis: Assess how the average ratings of holiday movies in the 3rd to 4th quartile have fluctuated over time, looking for any patterns or significant changes.
+
+Question2:
+
+    Data Preparation
+        Variables Involved: Title, Release Year, Genre(s), Duration, Ratings, Earnings.
+        Variables to be Created:Title Length(Calculate the number of characters in each movie title),Genre Count: Count of genres per movie, as movies might belong to multiple genres.
+        External Data to be Merged: Earnings data for each movie from IMDb's API.
+        Data Cleaning: cleaning the data for inconsistencies, missing values, and outliers. 
+
+    Trend Analysis:
+        Earnings and Genre Analysis: Examine how different genres correlate with earnings. Identify if certain genres tend to generate higher earnings than others.
+        Earnings and Duration Analysis: Investigate the relationship between the movie's duration and its earnings. Determine if there's a preferred movie length that correlates with higher earnings.
+        Earnings and Title Length Analysis: Explore whether the length of the movie title has any correlation with its earnings. This could include examining if shorter or longer titles are associated with higher earnings.
+        Earnings and Rating Analysis: Assess the relationship between a movie's rating and its earnings. Determine if higher-rated movies tend to earn more.
+        Earnings and Release Year Analysis: Look at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.
+
+
+
