@@ -50,7 +50,7 @@ The dataset contains 2265 rows and 14 columns. The data contains both numerical 
 ### Rationale for Selecting
 The dataset offers rich data with both numerical and categorical features that span over multiple decades. The data is broad enough to allow for creative research yet does not require deep domain knowledge. This makes it a good choice for a team with varied backgrounds.
 
-## Questions
+## Questions:
 
 ### Question 1
 We will look at the trends in popular holiday movies over the decades. Considering the movies with average ratings that fall in the range between the 3rd and 4th quartiles, we will show in which directions holiday movies have been evolving in terms of genres, duration, and lengths of titles.
@@ -101,6 +101,6 @@ Earnings and Title Length Analysis: Explore whether the length of the movie titl
 
 Earnings and Rating Analysis: Assess the relationship between a movie's rating and its earnings. Determine if higher-rated movies tend to earn more.
 
-Earnings and Release Year Analysis: Look at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.
+Earnings and Release Year Analysis: Look, at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.
 
 
