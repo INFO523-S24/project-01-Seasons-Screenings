@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "Season’s Screenings",
+    "section": "",
+    "text": "import numpy as np\nimport pandas as pd"
+  },
+  {
+    "objectID": "proposal.html#dataset",
+    "href": "proposal.html#dataset",
+    "title": "Season’s Screenings",
+    "section": "Dataset",
+    "text": "Dataset\n\ndata = pd.read_csv('data/holiday_movies.csv')\n\n\nDescription\nThe Holiday Movies dataset is a collection that focuses on movies with themes or titles related to various holidays. It spans various genres, years, and holiday themes, looking at how holiday movies have evolved over time and how audiences have received them. This dataset looks at popularity, genre distribution, and temporal trends.\n\n\nProvenance\nThe dataset is courtesy of the Tidy Tuesday project and can be found on their official GitHub repository. The origin of the data is IMDb’s Non-Commercial datasets. The criteria for including a movie in this dataset were very simple. All works that had “Holiday” in the title were included, as well as those that had specific types of holidays in the title (“Christmas”, “Hannukah” and “Kwanzaa”).\n\n\nStructure & Types of Data\nLet us look at the first 5 lines of the data:\n\ndata.head()\n\n\n\n\n\n\n\n\ntconst\ntitle_type\nprimary_title\noriginal_title\nyear\nruntime_minutes\ngenres\nsimple_title\naverage_rating\nnum_votes\nchristmas\nhanukkah\nkwanzaa\nholiday\n\n\n\n\n0\ntt0020356\nmovie\nSailor's Holiday\nSailor's Holiday\n1929\n58.0\nComedy\nsailors holiday\n5.4\n55\nFalse\nFalse\nFalse\nTrue\n\n\n1\ntt0020823\nmovie\nThe Devil's Holiday\nThe Devil's Holiday\n1930\n80.0\nDrama,Romance\nthe devils holiday\n6.0\n242\nFalse\nFalse\nFalse\nTrue\n\n\n2\ntt0020985\nmovie\nHoliday\nHoliday\n1930\n91.0\nComedy,Drama\nholiday\n6.3\n638\nFalse\nFalse\nFalse\nTrue\n\n\n3\ntt0021268\nmovie\nHoliday of St. Jorgen\nPrazdnik svyatogo Yorgena\n1930\n83.0\nComedy\nholiday of st jorgen\n7.4\n256\nFalse\nFalse\nFalse\nTrue\n\n\n4\ntt0021377\nmovie\nSin Takes a Holiday\nSin Takes a Holiday\n1930\n81.0\nComedy,Romance\nsin takes a holiday\n6.1\n740\nFalse\nFalse\nFalse\nTrue\n\n\n\n\n\n\n\nThe dataset contains 2266 lines and 14 columns. The data contains both numerical and categorical features. The genres column is essentially a set that contains multiple values, since a movie can belong to multiple genres.\n\n\nRationale for Selecting\nThe dataset offers rich data with both numerical and categorical features that span over multiple decades. The data is broad enough to allow for creative research yet does not require deep domain knowledge. This makes it a good choice for a team with varied backgrounds."
+  },
+  {
+    "objectID": "proposal.html#questions",
+    "href": "proposal.html#questions",
+    "title": "Season’s Screenings",
+    "section": "Questions",
+    "text": "Questions\n\nQuestion 1\nWe will look at the trends in popular holiday movies over the decades. Considering the movies with average ratings that fall in the range between the 3rd and 4th quartiles, we will show in which directions holiday movies have been evolving in terms of genres, duration, and lengths of titles.\n\n\nQuestion 2\nWe will look at the correlations between movie features (such as year of produciton, duration, length of title, rating, genres, and type of holiday) and the amount of earnings the movie generated. For that, we will supplement the existing dataset with box office information using IMDb’s API. These observations may be useful in developing a model for estimating the investment worthiness of a movie (whether in production stage or adding an existing movie to a portfolio)."
+  },
+  {
+    "objectID": "proposal.html#analysis-plan",
+    "href": "proposal.html#analysis-plan",
+    "title": "Season’s Screenings",
+    "section": "Analysis plan",
+    "text": "Analysis plan\n\nA plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).\n\nQuestion1:\nData Preparation\n    Variables Involved: Title, release year, genre(s), duration, ratings.\n    Variables to be Created:Title Length(Calculate the number of characters in each movie title),Rating Quartile: Categorize movies based on their rating quartile for easier analysis,Genre Count: Count of genres per movie, as movies might belong to multiple genres.\n    Data Cleaning: cleaning the data for inconsistencies, missing values, and outliers. \n\nTrend Analysis:\n    Genre Analysis: Determine the most common genres among holiday movies in the selected rating range.\n    Duration Analysis: Examine if there's a preferred movie length that correlates with higher ratings within the 3rd to 4th quartile range and how this preference has changed.\n    Title Length Analysis: Investigate the relationship between the length of movie titles and their ratings.\n    Yearly Rating Analysis: Assess how the average ratings of holiday movies in the 3rd to 4th quartile have fluctuated over time, looking for any patterns or significant changes.\nQuestion2:\nData Preparation\n    Variables Involved: Title, Release Year, Genre(s), Duration, Ratings, Earnings.\n    Variables to be Created:Title Length(Calculate the number of characters in each movie title),Genre Count: Count of genres per movie, as movies might belong to multiple genres.\n    External Data to be Merged: Earnings data for each movie from IMDb's API.\n    Data Cleaning: cleaning the data for inconsistencies, missing values, and outliers. \n\nTrend Analysis:\n    Earnings and Genre Analysis: Examine how different genres correlate with earnings. Identify if certain genres tend to generate higher earnings than others.\n    Earnings and Duration Analysis: Investigate the relationship between the movie's duration and its earnings. Determine if there's a preferred movie length that correlates with higher earnings.\n    Earnings and Title Length Analysis: Explore whether the length of the movie title has any correlation with its earnings. This could include examining if shorter or longer titles are associated with higher earnings.\n    Earnings and Rating Analysis: Assess the relationship between a movie's rating and its earnings. Determine if higher-rated movies tend to earn more.\n    Earnings and Release Year Analysis: Look at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project title",
+    "section": "",
+    "text": "Add project abstract here."
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "Project title",
+    "section": "",
+    "text": "Add project abstract here."
+  },
+  {
+    "objectID": "presentation.html#quarto",
+    "href": "presentation.html#quarto",
+    "title": "Project title",
+    "section": "Quarto",
+    "text": "Quarto\n\nThe presentation is created using the Quarto CLI\n## sets the start of a new slide"
+  },
+  {
+    "objectID": "presentation.html#layouts",
+    "href": "presentation.html#layouts",
+    "title": "Project title",
+    "section": "Layouts",
+    "text": "Layouts\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\nAnd add footnotes"
+  },
+  {
+    "objectID": "presentation.html#code",
+    "href": "presentation.html#code",
+    "title": "Project title",
+    "section": "Code",
+    "text": "Code\n\n\n                            OLS Regression Results                            \n==============================================================================\nDep. Variable:                    mpg   R-squared:                       0.073\nModel:                            OLS   Adj. R-squared:                  0.070\nMethod:                 Least Squares   F-statistic:                     30.59\nDate:                Tue, 05 Dec 2023   Prob (F-statistic):           5.84e-08\nTime:                        15:17:43   Log-Likelihood:                -1346.4\nNo. Observations:                 392   AIC:                             2697.\nDf Residuals:                     390   BIC:                             2705.\nDf Model:                           1                                         \nCovariance Type:            nonrobust                                         \n==============================================================================\n                 coef    std err          t      P&gt;|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst         35.8015      2.266     15.800      0.000      31.347      40.257\nspeed       -354.7055     64.129     -5.531      0.000    -480.788    -228.623\n==============================================================================\nOmnibus:                       27.687   Durbin-Watson:                   0.589\nProb(Omnibus):                  0.000   Jarque-Bera (JB):               18.976\nSkew:                           0.420   Prob(JB):                     7.57e-05\nKurtosis:                       2.323   Cond. No.                         169.\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified."
+  },
+  {
+    "objectID": "presentation.html#plots",
+    "href": "presentation.html#plots",
+    "title": "Project title",
+    "section": "Plots",
+    "text": "Plots"
+  },
+  {
+    "objectID": "presentation.html#plot-and-text",
+    "href": "presentation.html#plot-and-text",
+    "title": "Project title",
+    "section": "Plot and text",
+    "text": "Plot and text\n\n\n\nSome text\ngoes here"
+  },
+  {
+    "objectID": "presentation.html#tables",
+    "href": "presentation.html#tables",
+    "title": "Project title",
+    "section": "Tables",
+    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n\n\n\n\n\n\n\n\nspecies\n\n\n\nisland\n\n\n\nbill_length_mm\n\n\n\nbill_depth_mm\n\n\n\nflipper_length_mm\n\n\n\nbody_mass_g\n\n\n\nsex\n\n\n\n\n\n\n\n\n\n\n\n0\n\n\n\nAdelie\n\n\n\nTorgersen\n\n\n\n39.1\n\n\n\n18.7\n\n\n\n181.0\n\n\n\n3750.0\n\n\n\nMale\n\n\n\n\n\n\n\n1\n\n\n\nAdelie\n\n\n\nTorgersen\n\n\n\n39.5\n\n\n\n17.4\n\n\n\n186.0\n\n\n\n3800.0\n\n\n\nFemale\n\n\n\n\n\n\n\n2\n\n\n\nAdelie\n\n\n\nTorgersen\n\n\n\n40.3\n\n\n\n18.0\n\n\n\n195.0\n\n\n\n3250.0\n\n\n\nFemale\n\n\n\n\n\n\n\n4\n\n\n\nAdelie\n\n\n\nTorgersen\n\n\n\n36.7\n\n\n\n19.3\n\n\n\n193.0\n\n\n\n3450.0\n\n\n\nFemale\n\n\n\n\n\n\n\n5\n\n\n\nAdelie\n\n\n\nTorgersen\n\n\n\n39.3\n\n\n\n20.6\n\n\n\n190.0\n\n\n\n3650.0\n\n\n\nMale"
+  },
+  {
+    "objectID": "presentation.html#images",
+    "href": "presentation.html#images",
+    "title": "Project title",
+    "section": "Images",
+    "text": "Images\n\nImage credit: Danielle Navarro, Percolate."
+  },
+  {
+    "objectID": "presentation.html#math-expressions",
+    "href": "presentation.html#math-expressions",
+    "title": "Project title",
+    "section": "Math Expressions",
+    "text": "Math Expressions\nYou can write LaTeX math expressions inside a pair of dollar signs, e.g. $\\alpha+\\beta$ renders \\(\\alpha + \\beta\\). You can use the display style with double dollar signs:\n$$\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i$$\n\\[\n\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i\n\\]\nLimitations:\n\nThe source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting $$ must appear in the very beginning of a line, followed immediately by a non-space character, and the ending $$ must be at the end of a line, led by a non-space character;\nThere should not be spaces after the opening $ or before the closing $."
+  },
+  {
+    "objectID": "presentation.html#feeling-adventurous",
+    "href": "presentation.html#feeling-adventurous",
+    "title": "Project title",
+    "section": "Feeling adventurous?",
+    "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This project was developed by [Team Name] For INFO 523 - Data Mining and Discovery at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nTeam member 1: One sentence description of Team member 1 (e.g., year, major, etc.).\nTeam member 2: One sentence description of Team member 2 (e.g., year, major, etc.).\nTeam member 3: One sentence description of Team member 3 (e.g., year, major, etc.).\nTeam member 4: One sentence description of Team member 4 (e.g., year, major, etc.)."
+  }
+]
