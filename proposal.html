@@ -170,12 +170,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#structure-types-of-data" id="toc-structure-types-of-data" class="nav-link" data-scroll-target="#structure-types-of-data">Structure &amp; Types of Data</a></li>
   <li><a href="#rationale-for-selecting" id="toc-rationale-for-selecting" class="nav-link" data-scroll-target="#rationale-for-selecting">Rationale for Selecting</a></li>
   </ul></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions:</a>
   <ul class="collapse">
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
   </ul></li>
-  <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis plan</a></li>
+  <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis plan</a>
+  <ul class="collapse">
+  <li><a href="#question-1-1" id="toc-question-1-1" class="nav-link" data-scroll-target="#question-1-1">Question 1</a></li>
+  <li><a href="#question-2-1" id="toc-question-2-1" class="nav-link" data-scroll-target="#question-2-1">Question 2</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -340,7 +344,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The dataset contains 2266 lines and 14 columns. The data contains both numerical and categorical features. The <em>genres</em> column is essentially a set that contains multiple values, since a movie can belong to multiple genres.</p>
+<p>Let us look at the shape of the data</p>
+<div id="cell-show-data-shape" class="cell" data-message="false" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="show-data-shape" class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>(2265, 14)</code></pre>
+</div>
+</div>
+<p>The dataset contains 2265 rows and 14 columns. The data contains both numerical and categorical features. The <em>genres</em> column is essentially a set that contains multiple values, since a movie can belong to multiple genres.</p>
 </section>
 <section id="rationale-for-selecting" class="level3">
 <h3 class="anchored" data-anchor-id="rationale-for-selecting">Rationale for Selecting</h3>
@@ -348,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<h2 class="anchored" data-anchor-id="questions">Questions:</h2>
 <section id="question-1" class="level3">
 <h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <p>We will look at the trends in popular holiday movies over the decades. Considering the movies with average ratings that fall in the range between the 3rd and 4th quartiles, we will show in which directions holiday movies have been evolving in terms of genres, duration, and lengths of titles.</p>
@@ -360,35 +371,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="analysis-plan" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-plan">Analysis plan</h2>
-<ul>
-<li>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</li>
-</ul>
-<p>Question1:</p>
-<pre><code>Data Preparation
-    Variables Involved: Title, release year, genre(s), duration, ratings.
-    Variables to be Created:Title Length(Calculate the number of characters in each movie title),Rating Quartile: Categorize movies based on their rating quartile for easier analysis,Genre Count: Count of genres per movie, as movies might belong to multiple genres.
-    Data Cleaning: cleaning the data for inconsistencies, missing values, and outliers. 
-
-Trend Analysis:
-    Genre Analysis: Determine the most common genres among holiday movies in the selected rating range.
-    Duration Analysis: Examine if there's a preferred movie length that correlates with higher ratings within the 3rd to 4th quartile range and how this preference has changed.
-    Title Length Analysis: Investigate the relationship between the length of movie titles and their ratings.
-    Yearly Rating Analysis: Assess how the average ratings of holiday movies in the 3rd to 4th quartile have fluctuated over time, looking for any patterns or significant changes.</code></pre>
-<p>Question2:</p>
-<pre><code>Data Preparation
-    Variables Involved: Title, Release Year, Genre(s), Duration, Ratings, Earnings.
-    Variables to be Created:Title Length(Calculate the number of characters in each movie title),Genre Count: Count of genres per movie, as movies might belong to multiple genres.
-    External Data to be Merged: Earnings data for each movie from IMDb's API.
-    Data Cleaning: cleaning the data for inconsistencies, missing values, and outliers. 
-
-Trend Analysis:
-    Earnings and Genre Analysis: Examine how different genres correlate with earnings. Identify if certain genres tend to generate higher earnings than others.
-    Earnings and Duration Analysis: Investigate the relationship between the movie's duration and its earnings. Determine if there's a preferred movie length that correlates with higher earnings.
-    Earnings and Title Length Analysis: Explore whether the length of the movie title has any correlation with its earnings. This could include examining if shorter or longer titles are associated with higher earnings.
-    Earnings and Rating Analysis: Assess the relationship between a movie's rating and its earnings. Determine if higher-rated movies tend to earn more.
-    Earnings and Release Year Analysis: Look at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.</code></pre>
+<section id="question-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
+<p><strong>Data Preparation</strong>:</p>
+<p>Variables Involved: Title, release year, genre(s), duration, ratings.</p>
+<p>Variables to be Created: Title Length(Calculate the number of characters in each movie title), Rating Quartile: Categorize movies based on their rating quartile for easier analysis, Genre Count: Count of genres per movie, as movies might belong to multiple genres.</p>
+<p>Data Cleaning: cleaning the data for inconsistencies, missing values, and outliers.</p>
+<p><strong>Trend Analysis</strong>:</p>
+<p>Genre Analysis: Determine the most common genres among holiday movies in the selected rating range.</p>
+<p>Duration Analysis: Examine if there’s a preferred movie length that correlates with higher ratings within the 3rd to 4th quartile range and how this preference has changed.</p>
+<p>Title Length Analysis: Investigate the relationship between the length of movie titles and their ratings.</p>
+<p>Yearly Rating Analysis: Assess how the average ratings of holiday movies in the 3rd to 4th quartile have fluctuated over time, looking for any patterns or significant changes.</p>
+</section>
+<section id="question-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-2-1">Question 2</h3>
+<p><strong>Data Preparation</strong>:</p>
+<p>Variables Involved: Title, release year, genre(s), duration, ratings, earnings.</p>
+<p>Variables to be Created: Title Length(Calculate the number of characters in each movie title), Genre Count: Count of genres per movie, as movies might belong to multiple genres.</p>
+<p>External Data to be Merged: Earnings data for each movie from IMDb’s API. Data Cleaning: cleaning the data for inconsistencies, missing values, and outliers.</p>
+<p><strong>Trend Analysis</strong>:</p>
+<p>Earnings and Genre Analysis: Examine how different genres correlate with earnings. Identify if certain genres tend to generate higher earnings than others.</p>
+<p>Earnings and Duration Analysis: Investigate the relationship between the movie’s duration and its earnings. Determine if there’s a preferred movie length that correlates with higher earnings.</p>
+<p>Earnings and Title Length Analysis: Explore whether the length of the movie title has any correlation with its earnings. This could include examining if shorter or longer titles are associated with higher earnings.</p>
+<p>Earnings and Rating Analysis: Assess the relationship between a movie’s rating and its earnings. Determine if higher-rated movies tend to earn more.</p>
+<p>Earnings and Release Year Analysis: Look, at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
