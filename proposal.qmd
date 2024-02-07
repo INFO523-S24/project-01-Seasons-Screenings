@@ -32,7 +32,7 @@ The dataset is courtesy of the Tidy Tuesday project and can be found on their of
 ### Structure & Types of Data
 Let us look at the first 5 lines of the data:
 ```{python}
-#| label: show-data-shape
+#| label: show-data
 #| message: false
 data.head()
 ```
@@ -40,7 +40,7 @@ data.head()
 
 Let us look at the shape of the data
 ```{python}
-#| label: show-data
+#| label: show-data-shape
 #| message: false
 data.shape
 ```
