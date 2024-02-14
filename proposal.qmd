@@ -53,9 +53,13 @@ The dataset offers rich data with both numerical and categorical features that s
 ## Questions:
 
 ### Question 1
+How have popular movies been changing over the decades?
+
 We will look at the trends in popular holiday movies over the decades. Considering the movies with average ratings that fall in the range between the 3rd and 4th quartiles, we will show in which directions holiday movies have been evolving in terms of genres, duration, and lengths of titles.
 
 ### Question 2
+What kind of holiday movies earn the most money?
+
 We will look at the correlations between movie features (such as year of produciton, duration, length of title, rating, genres, and type of holiday) and the amount of earnings the movie generated. For that, we will supplement the existing dataset with box office information using IMDb's API. These observations may be useful in developing a model for estimating the investment worthiness of a movie (whether in production stage or adding an existing movie to a portfolio).
 
 ## Analysis plan
