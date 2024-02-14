@@ -24,7 +24,7 @@ data = pd.read_csv('data/holiday_movies.csv')
 ```
 
 ### Description
-The *Holiday Movies* dataset is a collection that focuses on movies with themes or titles related to various holidays. It spans various genres, years, and holiday themes, looking at how holiday movies have evolved over time and how audiences have received them. This dataset looks at popularity, genre distribution, and temporal trends.
+The *Holiday Movies* dataset is a collection that focuses on movies with themes or titles related to various holidays. It spans various genres, years, and holiday themes, looking at how holiday movies have evolved over time and how audiences have received them. By selecting the Holiday Movies dataset, we leverage a rich compilation of data to explore changes in popularity, genre preferences, and financial success over time.Our goal is to uncover patterns and insights that could inform future film production and marketing strategies.
 
 ### Provenance
 The dataset is courtesy of the Tidy Tuesday project and can be found on their official GitHub [repository](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-12-12). The origin of the data is IMDb's Non-Commercial datasets. The criteria for including a movie in this dataset were very simple. All works that had "Holiday" in the title were included, as well as those that had specific types of holidays in the title ("Christmas", "Hannukah" and "Kwanzaa").
@@ -84,6 +84,8 @@ Title Length Analysis: Investigate the relationship between the length of movie 
 
 Yearly Rating Analysis: Assess how the average ratings of holiday movies in the 3rd to 4th quartile have fluctuated over time, looking for any patterns or significant changes.
 
+Analytical method: we plan to employ statistical methods and machine learning algorithms to uncover underlying patterns and correlations. Initially, descriptive statistics and visualization tools (such as line graphs and bar charts) will be used to observe changes over time.
+
 ### Question 2
 
 **Data Preparation**:
@@ -97,8 +99,6 @@ Data Cleaning: cleaning the data for inconsistencies, missing values, and outlie
 
 **Trend Analysis**:
 
-Earnings and Genre Analysis: Examine how different genres correlate with earnings. Identify if certain genres tend to generate higher earnings than others.
-
 Earnings and Duration Analysis: Investigate the relationship between the movie's duration and its earnings. Determine if there's a preferred movie length that correlates with higher earnings.
 
 Earnings and Title Length Analysis: Explore whether the length of the movie title has any correlation with its earnings. This could include examining if shorter or longer titles are associated with higher earnings.
@@ -107,4 +107,5 @@ Earnings and Rating Analysis: Assess the relationship between a movie's rating a
 
 Earnings and Release Year Analysis: Look at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.
 
+Analytical Method :In addressing the financial success of holiday movies and its correlation with various features, we will integrate linear regression analysis to explore the relationships between movie characteristics (such as genre, duration, and ratings) and box office earnings.
 
