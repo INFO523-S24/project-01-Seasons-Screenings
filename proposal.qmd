@@ -105,6 +105,6 @@ Earnings and Title Length Analysis: Explore whether the length of the movie titl
 
 Earnings and Rating Analysis: Assess the relationship between a movie's rating and its earnings. Determine if higher-rated movies tend to earn more.
 
-Earnings and Release Year Analysis: Look, at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.
+Earnings and Release Year Analysis: Look at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.
 
 
