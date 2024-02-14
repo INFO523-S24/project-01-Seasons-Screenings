@@ -217,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="description" class="level3">
 <h3 class="anchored" data-anchor-id="description">Description</h3>
-<p>The <em>Holiday Movies</em> dataset is a collection that focuses on movies with themes or titles related to various holidays. It spans various genres, years, and holiday themes, looking at how holiday movies have evolved over time and how audiences have received them. This dataset looks at popularity, genre distribution, and temporal trends.</p>
+<p>The <em>Holiday Movies</em> dataset is a collection that focuses on movies with themes or titles related to various holidays. It spans various genres, years, and holiday themes, looking at how holiday movies have evolved over time and how audiences have received them. By selecting the Holiday Movies dataset, we leverage a rich compilation of data to explore changes in popularity, genre preferences, and financial success over time.Our goal is to uncover patterns and insights that could inform future film production and marketing strategies.</p>
 </section>
 <section id="provenance" class="level3">
 <h3 class="anchored" data-anchor-id="provenance">Provenance</h3>
@@ -228,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Let us look at the first 5 lines of the data:</p>
 <div id="cell-show-data" class="cell" data-message="false" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="show-data" class="cell-output cell-output-display" data-execution_count="3">
+<div id="show-data" class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -344,10 +344,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Let us look at the shape of the data</p>
+<p>Let us look at the shape of the data:</p>
 <div id="cell-show-data-shape" class="cell" data-message="false" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="show-data-shape" class="cell-output cell-output-display" data-execution_count="4">
+<div id="show-data-shape" class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>(2265, 14)</code></pre>
 </div>
 </div>
@@ -362,11 +362,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="questions">Questions:</h2>
 <section id="question-1" class="level3">
 <h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<p>How have popular movies been changing over the decades?</p>
 <p>We will look at the trends in popular holiday movies over the decades. Considering the movies with average ratings that fall in the range between the 3rd and 4th quartiles, we will show in which directions holiday movies have been evolving in terms of genres, duration, and lengths of titles.</p>
 </section>
 <section id="question-2" class="level3">
 <h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
-<p>We will look at the correlations between movie features (such as year of produciton, duration, length of title, rating, genres, and type of holiday) and the amount of earnings the movie generated. For that, we will supplement the existing dataset with box office information using IMDb’s API. These observations may be useful in developing a model for estimating the investment worthiness of a movie (whether in production stage or adding an existing movie to a portfolio).</p>
+<p>What kind of holiday movies earn the most money?</p>
+<p>We will look at the correlations between movie features (such as year of production, duration, length of title, rating, genres, and type of holiday) and the amount of earnings the movie generated. For that, we will supplement the existing dataset with box office information using IMDb’s API. These observations may be useful in developing a model for estimating the investment worthiness of a movie (whether in production stage or adding an existing movie to a portfolio).</p>
 </section>
 </section>
 <section id="analysis-plan" class="level2">
@@ -374,27 +376,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="question-1-1" class="level3">
 <h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
 <p><strong>Data Preparation</strong>:</p>
-<p>Variables Involved: Title, release year, genre(s), duration, ratings.</p>
-<p>Variables to be Created: Title Length(Calculate the number of characters in each movie title), Rating Quartile: Categorize movies based on their rating quartile for easier analysis, Genre Count: Count of genres per movie, as movies might belong to multiple genres.</p>
-<p>Data Cleaning: cleaning the data for inconsistencies, missing values, and outliers.</p>
+<p><em>Variables Involved:</em> Title, release year, genre(s), duration, ratings.</p>
+<p><em>Variables to be Created:</em> Title Length(Calculate the number of characters in each movie title).</p>
+<p><em>Rating Quartile:</em> Categorize movies based on their rating quartile for easier analysis.</p>
+<p><em>Genre Count:</em> Count of genres per movie, as movies might belong to multiple genres.</p>
+<p><em>Data Cleaning:</em> cleaning the data for inconsistencies, missing values, and outliers.</p>
 <p><strong>Trend Analysis</strong>:</p>
-<p>Genre Analysis: Determine the most common genres among holiday movies in the selected rating range.</p>
-<p>Duration Analysis: Examine if there’s a preferred movie length that correlates with higher ratings within the 3rd to 4th quartile range and how this preference has changed.</p>
-<p>Title Length Analysis: Investigate the relationship between the length of movie titles and their ratings.</p>
-<p>Yearly Rating Analysis: Assess how the average ratings of holiday movies in the 3rd to 4th quartile have fluctuated over time, looking for any patterns or significant changes.</p>
+<p><em>Genre Analysis:</em> Determine the most common genres among holiday movies in the selected rating range.</p>
+<p><em>Duration Analysis:</em> Examine if there’s a preferred movie length that correlates with higher ratings within the 3rd to 4th quartile range and how this preference has changed.</p>
+<p><em>Title Length Analysis:</em> Investigate the relationship between the length of movie titles and their ratings.</p>
+<p><em>Yearly Rating Analysis:</em> Assess how the average ratings of holiday movies in the 3rd to 4th quartile have fluctuated over time, looking for any patterns or significant changes.</p>
+<p><em>Analytical method:</em> we plan to employ statistical methods and machine learning algorithms to uncover underlying patterns and correlations. Initially, descriptive statistics and visualization tools (such as line graphs and bar charts) will be used to observe changes over time.</p>
 </section>
 <section id="question-2-1" class="level3">
 <h3 class="anchored" data-anchor-id="question-2-1">Question 2</h3>
 <p><strong>Data Preparation</strong>:</p>
-<p>Variables Involved: Title, release year, genre(s), duration, ratings, earnings.</p>
-<p>Variables to be Created: Title Length(Calculate the number of characters in each movie title), Genre Count: Count of genres per movie, as movies might belong to multiple genres.</p>
-<p>External Data to be Merged: Earnings data for each movie from IMDb’s API. Data Cleaning: cleaning the data for inconsistencies, missing values, and outliers.</p>
+<p><em>Variables Involved:</em> Title, release year, genre(s), duration, ratings, earnings.</p>
+<p><em>Variables to be Created:</em> Title Length(Calculate the number of characters in each movie title)</p>
+<p><em>Genre Count:</em> Count of genres per movie, as movies might belong to multiple genres.</p>
+<p><em>External Data to be Merged:</em> Earnings data for each movie from IMDb’s API.</p>
+<p><em>Data Cleaning:</em> cleaning the data for inconsistencies, missing values, and outliers.</p>
 <p><strong>Trend Analysis</strong>:</p>
-<p>Earnings and Genre Analysis: Examine how different genres correlate with earnings. Identify if certain genres tend to generate higher earnings than others.</p>
-<p>Earnings and Duration Analysis: Investigate the relationship between the movie’s duration and its earnings. Determine if there’s a preferred movie length that correlates with higher earnings.</p>
-<p>Earnings and Title Length Analysis: Explore whether the length of the movie title has any correlation with its earnings. This could include examining if shorter or longer titles are associated with higher earnings.</p>
-<p>Earnings and Rating Analysis: Assess the relationship between a movie’s rating and its earnings. Determine if higher-rated movies tend to earn more.</p>
-<p>Earnings and Release Year Analysis: Look, at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.</p>
+<p><em>Earnings and Duration Analysis:</em> Investigate the relationship between the movie’s duration and its earnings. Determine if there’s a preferred movie length that correlates with higher earnings.</p>
+<p><em>Earnings and Title Length Analysis:</em> Explore whether the length of the movie title has any correlation with its earnings. This could include examining if shorter or longer titles are associated with higher earnings.</p>
+<p><em>Earnings and Rating Analysis:</em> Assess the relationship between a movie’s rating and its earnings. Determine if higher-rated movies tend to earn more.</p>
+<p><em>Earnings and Release Year Analysis:</em> Look at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.</p>
+<p><em>Analytical Method:</em> In addressing the financial success of holiday movies and its correlation with various features, we will integrate linear regression analysis to explore the relationships between movie characteristics (such as genre, duration, and ratings) and box office earnings.</p>
 
 
 </section>
