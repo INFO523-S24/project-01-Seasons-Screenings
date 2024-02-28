@@ -144,9 +144,9 @@ We will look at the correlations between movie features (such as year of product
 
 ## Project Timeline
 
-| Task | Desciption                                                     | Start      | End        |
-|-------|-----------------------------------|-------------|------------------|
-| 1    | Choose a dataset and write up proposal                         | 2024-01-30 | 2024-02-06 |
-| 2    | Receive feedback on proposal and make necessery changes        | 2024-02-06 | 2024-02-13 |
-| 3    | Perform data analysis and work on presentation and write-up    | 2024-02-13 | 2024-02-27 |
-| 4    | Finalize analysis, write-up, presentation and project website  | 2024-02-27 | 2024-03-12 |
+| Task | Desciption                                                    | Start      | End        |
+|------|---------------------------------------------------------------|------------|------------|
+| 1    | Choose a dataset and write up proposal                        | 2024-01-30 | 2024-02-06 |
+| 2    | Receive feedback on proposal and make necessery changes       | 2024-02-06 | 2024-02-13 |
+| 3    | Perform data analysis and work on presentation and write-up   | 2024-02-13 | 2024-02-27 |
+| 4    | Finalize analysis, write-up, presentation and project website | 2024-02-27 | 2024-03-12 |
