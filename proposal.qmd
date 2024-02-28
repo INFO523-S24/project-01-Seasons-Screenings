@@ -23,22 +23,45 @@ import pandas as pd
 data = pd.read_csv('data/holiday_movies.csv')
 ```
 
-### Description
+## Metadata
+
+| Column          | Data type   | Description                                                                                                        |
+|-----------------|-------------|--------------------------------------------------------------------------------------------------------------------|
+| tconst          | string      | Alphanumeric unique identifier of the title                                                                        |
+| title_type      | categorical | The type/format of the title (movie, video, or tvMovie)                                                            |
+| primary_title   | string      | The more popular title / the title used by the filmmakers on promotional materials at the point of release         |
+| original_title  | string      | Original title, in the original language                                                                           |
+| year            | numerical   | The release year of a title                                                                                        |
+| runtime_minutes | numerical   | Primary runtime of the title, in minutes                                                                           |
+| genres          | categorical | Includes up to three genres associated with the title (comma-delimited)                                            |
+| simple_title    | string      | The title in lowercase, with punctuation removed, for easier filtering and grouping                                |
+| average_rating  | numerical   | Weighted average of all the individual user ratings on IMDb                                                        |
+| num_votes       | numerical   | Number of votes the title has received on IMDb (titles with fewer than 10 votes were not included in this dataset) |
+| christmas       | boolean     | Whether the title includes "christmas", "xmas", "x mas", etc                                                       |
+| hanukkah        | boolean     | Whether the title includes "hanukkah", "chanukah", etc                                                             |
+| kwanzaa         | boolean     | Whether the title includes "kwanzaa"                                                                               |
+| holiday         | boolean     | Whether the title includes the word "holiday"                                                                      |
+
+## Description
+
 The *Holiday Movies* dataset is a collection that focuses on movies with themes or titles related to various holidays. It spans various genres, years, and holiday themes, looking at how holiday movies have evolved over time and how audiences have received them. By selecting the Holiday Movies dataset, we leverage a rich compilation of data to explore changes in popularity, genre preferences, and financial success over time.Our goal is to uncover patterns and insights that could inform future film production and marketing strategies.
 
 ### Provenance
+
 The dataset is courtesy of the Tidy Tuesday project and can be found on their official GitHub [repository](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-12-12). The origin of the data is IMDb's Non-Commercial datasets. The criteria for including a movie in this dataset were very simple. All works that had "Holiday" in the title were included, as well as those that had specific types of holidays in the title ("Christmas", "Hannukah" and "Kwanzaa").
 
 ### Structure & Types of Data
+
 Let us look at the first 5 lines of the data:
+
 ```{python}
 #| label: show-data
 #| message: false
 data.head()
 ```
 
-
 Let us look at the shape of the data:
+
 ```{python}
 #| label: show-data-shape
 #| message: false
@@ -48,16 +71,19 @@ data.shape
 The dataset contains 2265 rows and 14 columns. The data contains both numerical and categorical features. The *genres* column is essentially a set that contains multiple values, since a movie can belong to multiple genres.
 
 ### Rationale for Selecting
+
 The dataset offers rich data with both numerical and categorical features that span over multiple decades. The data is broad enough to allow for creative research yet does not require deep domain knowledge. This makes it a good choice for a team with varied backgrounds.
 
 ## Questions:
 
 ### Question 1
+
 How have popular movies been changing over the decades?
 
 We will look at the trends in popular holiday movies over the decades. Considering the movies with average ratings that fall in the range between the 3rd and 4th quartiles, we will show in which directions holiday movies have been evolving in terms of genres, duration, and lengths of titles.
 
 ### Question 2
+
 What kind of holiday movies earn the most money?
 
 We will look at the correlations between movie features (such as year of production, duration, length of title, rating, genres, and type of holiday) and the amount of earnings the movie generated. For that, we will supplement the existing dataset with box office information using IMDb's API. These observations may be useful in developing a model for estimating the investment worthiness of a movie (whether in production stage or adding an existing movie to a portfolio).
@@ -68,51 +94,59 @@ We will look at the correlations between movie features (such as year of product
 
 **Data Preparation**:
 
-_Variables Involved:_ Title, release year, genre(s), duration, ratings.
+-   **Variables Involved:** Title, release year, genre(s), duration, ratings.
 
-_Variables to be Created:_ Title Length(Calculate the number of characters in each movie title).
+-   **Variables to be Created:** Title Length(Calculate the number of characters in each movie title).
 
-_Rating Quartile:_ Categorize movies based on their rating quartile for easier analysis.
+-   **Rating Quartile:** Categorize movies based on their rating quartile for easier analysis.
 
-_Genre Count:_ Count of genres per movie, as movies might belong to multiple genres.
+-   **Genre Count:** Count of genres per movie, as movies might belong to multiple genres.
 
-_Data Cleaning:_ cleaning the data for inconsistencies, missing values, and outliers. 
+-   **Data Cleaning:** cleaning the data for inconsistencies, missing values, and outliers.
 
 **Trend Analysis**:
 
-_Genre Analysis:_ Determine the most common genres among holiday movies in the selected rating range.
+-   **Genre Analysis:** Determine the most common genres among holiday movies in the selected rating range.
 
-_Duration Analysis:_ Examine if there's a preferred movie length that correlates with higher ratings within the 3rd to 4th quartile range and how this preference has changed.
+-   **Duration Analysis:** Examine if there's a preferred movie length that correlates with higher ratings within the 3rd to 4th quartile range and how this preference has changed.
 
-_Title Length Analysis:_ Investigate the relationship between the length of movie titles and their ratings.
+-   **Title Length Analysis:** Investigate the relationship between the length of movie titles and their ratings.
 
-_Yearly Rating Analysis:_ Assess how the average ratings of holiday movies in the 3rd to 4th quartile have fluctuated over time, looking for any patterns or significant changes.
+-   **Yearly Rating Analysis:** Assess how the average ratings of holiday movies in the 3rd to 4th quartile have fluctuated over time, looking for any patterns or significant changes.
 
-_Analytical method:_ we plan to employ statistical methods and machine learning algorithms to uncover underlying patterns and correlations. Initially, descriptive statistics and visualization tools (such as line graphs and bar charts) will be used to observe changes over time.
+-   **Analytical method:** we plan to employ statistical methods and machine learning algorithms to uncover underlying patterns and correlations. Initially, descriptive statistics and visualization tools (such as line graphs and bar charts) will be used to observe changes over time.
 
 ### Question 2
 
 **Data Preparation**:
 
-_Variables Involved:_ Title, release year, genre(s), duration, ratings, earnings.
+-   **Variables Involved:** Title, release year, genre(s), duration, ratings, earnings.
 
-_Variables to be Created:_ Title Length(Calculate the number of characters in each movie title)
+-   **Variables to be Created:** Title Length(Calculate the number of characters in each movie title)
 
-_Genre Count:_ Count of genres per movie, as movies might belong to multiple genres.
+-   **Genre Count:** Count of genres per movie, as movies might belong to multiple genres.
 
-_External Data to be Merged:_ Earnings data for each movie from IMDb's API.
+-   **External Data to be Merged:** Earnings data for each movie from IMDb's API.
 
-_Data Cleaning:_ cleaning the data for inconsistencies, missing values, and outliers. 
+-   **Data Cleaning:** cleaning the data for inconsistencies, missing values, and outliers.
 
 **Trend Analysis**:
 
-_Earnings and Duration Analysis:_ Investigate the relationship between the movie's duration and its earnings. Determine if there's a preferred movie length that correlates with higher earnings.
+-   **Earnings and Duration Analysis:** Investigate the relationship between the movie's duration and its earnings. Determine if there's a preferred movie length that correlates with higher earnings.
 
-_Earnings and Title Length Analysis:_ Explore whether the length of the movie title has any correlation with its earnings. This could include examining if shorter or longer titles are associated with higher earnings.
+-   **Earnings and Title Length Analysis:** Explore whether the length of the movie title has any correlation with its earnings. This could include examining if shorter or longer titles are associated with higher earnings.
 
-_Earnings and Rating Analysis:_ Assess the relationship between a movie's rating and its earnings. Determine if higher-rated movies tend to earn more.
+-   **Earnings and Rating Analysis:** Assess the relationship between a movie's rating and its earnings. Determine if higher-rated movies tend to earn more.
 
-_Earnings and Release Year Analysis:_ Look at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.
+-   **Earnings and Release Year Analysis:** Look at how the earnings of movies have changed over time. This could involve analyzing trends in movie earnings across different years.
 
-_Analytical Method:_ In addressing the financial success of holiday movies and its correlation with various features, we will integrate linear regression analysis to explore the relationships between movie characteristics (such as genre, duration, and ratings) and box office earnings.
+-   **Analytical Method:** In addressing the financial success of holiday movies and its correlation with various features, we will integrate linear regression analysis to explore the relationships between movie characteristics (such as genre, duration, and ratings) and box office earnings.
 
+## Project Timeline
+
+| Task | Desciption                                                     | Start      | End        |
+|-------|-----------------------------------|-------------|------------------|
+| 1    | Choose a dataset and write up proposal                         | 2024-01-30 | 2024-02-06 |
+| 2    | Receive feedback on proposal and make necessery changes        | 2024-02-06 | 2024-02-13 |
+| 3    | Perform data analysis and work on presentation and write-up    | 2024-02-13 | 2024-02-27 |
+| 4    | Finalize analysis, write-up, presentation and project website  | 2024-02-27 | 2024-03-12 |
