@@ -78,7 +78,7 @@ merged_df = pd.merge(top_movies, new_genres, on='tconst', how='left')
 ```
 
 ```{python}
-#Genre Analysis
+# Genre Analysis
 
 # Count the frequency of each genre within the 3rd and 4th rating quartiles
 genre_counts = merged_df['genres_y'].value_counts()
@@ -123,3 +123,99 @@ From the genre distribution bar plot, we can observe that Comedy and Drama are t
 The second plot, showcasing the relationship between movie runtime and rating quartile, indicates that there isn't a strong preference for movie length within the top rating quartiles. While there is a concentration of movies with runtimes around 100 minutes (typical for standard feature films), the presence of highly-rated movies with longer runtimes suggests that a film's duration is less significant to its reception compared to other factors such as story, acting, and direction. However, the spread of runtimes in the 3rd quartile is narrower than in the 4th, hinting that exceptionally well-received movies might have a tighter consistency in their duration.
 
 The line plot correlating title length with average rating shows a more erratic relationship. While no clear trend is discernible, there appears to be a slight tendency for movies with shorter titles to have higher ratings, although there are exceptions at various points. This might imply that conciseness in a title could be associated with a film's memorability or marketing effectiveness, but the numerous outliers make it difficult to draw a definitive conclusion.
+``
+## What kind of holiday movies earn the most money?
+
+### Introduction
+We will look at the correlations between movie features (such as year of production, duration, length of title, rating, genres, and type of holiday) and the amount of earnings the movie generated. For that, we will supplement the existing dataset with box office information using IMDb's API. These observations may be useful in developing a model for estimating the investment worthiness of a movie (whether in production stage or adding an existing movie to a portfolio).
+
+### Approach
+At first glance, the *tconst* column in the dataset may seem redundant. After all, we have the indices, why would we need other identifiers? These variables become useful when we need to get additional data about the movies. Using IMDB's API, we will populate a new column called *earnings*. It will allow us to answer our question and make additional useful observations.
+
+### Analysis
+In order to not expose the API key and not to waste many minute of time on real-time execution, the code below is not executable. Instead, we will generate the *earnings* column once, update a copy of our dataset and have it readily available in the /data folder. The function below does just that: using the *tconst* variable, it makes a call to IMDb's API and returns the gross movie earnings.
+
+```
+import json
+import boto3
+
+
+def get_earnings(tconst)
+    # Instantiate DataExchange client
+    CLIENT = boto3.client('dataexchange', region_name='us-east-1')
+
+    DATA_SET_ID = '<Dataset ID>'
+    REVISION_ID = '<Revision ID>'
+    ASSET_ID    = '<Asset ID>'
+    API_KEY     = '<API Key>'
+
+    query = """
+    {title(id: tconst) {
+        # Get the international opening weekend gross for WALL·E
+        openingWeekendGross(boxOfficeArea: INTERNATIONAL) {
+        gross {
+            total {
+            amount
+            currency
+            }
+        }
+        # Get the date of the opening weekend end date
+        weekendEndDate
+        }
+    }
+    }
+    """
+
+    METHOD = 'POST'
+    PATH = '/v1'
+
+    response = CLIENT.send_api_asset(
+        DataSetId=DATA_SET_ID,
+        RevisionId=REVISION_ID,
+        AssetId=ASSET_ID,
+        Method=METHOD,
+        Path=PATH,
+        Body=BODY,
+        RequestHeaders={
+            'x-api-key': API_KEY
+        },
+    )
+
+    return response['Data']['gross']
+```
+*Disclaimer: IMDb's API is extremely pricey, so we do not make actual calls, but rather simulate the data for demonstrative purposes. However, all the shown functions and actions have been carefully crafted in accordance with IMDb's API documentation. They will work provided a valid API key*
+
+We load the data in and convert the values into millions of USD by dividing every value by 1,000,000. Then we will proceed to explore a few relationships to see if any features in our dataset correlate to earnings.
+```{python}
+#| label: load-earnings-data
+
+df_earnings = pd.read_csv('data/holiday_movies_earnings.csv')
+
+df_earnings['earnings'] = df_earnings['earnings'] // 1000000  # earnings in mln $
+df_earnings.head()
+```
+
+We can observe that there are more outliers before 1980. There are both extremely high earners and movies that made very little. There is less data on older movies, so this information has to be taken with a grain of salt. It could be simply a result of too few datapoints.
+```{python}
+#| label: year-earnings-relationship
+
+data_copy = df_earnings.copy()
+averages = data_copy.groupby('year')['earnings'].mean()
+
+scatter = sns.scatterplot(data=averages.to_frame(), x="year", y="earnings")
+labels = scatter.set(xlabel ="Year", ylabel = "Earnings (in mln USD)", title ="Year-earnings relationship")
+```
+
+As we may intuitively expect, there indeed seems to be a correlation between the average rating of a movie and its earnings. The more people like the movie, the more tickets it sells.
+```{python}
+
+#| label: rating-earnings-relationship
+
+data_copy = df_earnings.copy()
+averages = data_copy.groupby('average_rating')['earnings'].mean()
+
+scatter = sns.scatterplot(data=averages.to_frame(), x="average_rating", y="earnings")
+labels = scatter.set(xlabel ="Rating", ylabel = "Earnings (in mln USD)", title ="Rating-earnings relationship")
+```
+
+
