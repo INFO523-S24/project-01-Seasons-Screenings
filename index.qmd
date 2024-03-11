@@ -9,7 +9,7 @@ jupyter: python3
 
 ## Abstract
 
-The provided dataset is a structured compilation of films with a central theme or element of holidays, spanning almost a century from 1929 to 2022. The dataset includes various attributes such as the original title of the movie, its release year, the runtime in minutes, the genre(s), a simplified title, the average rating, the number of votes the movie received, and boolean indicators for its association with major holidays like Christmas, Hanukkah, Kwanzaa, and whether it is related to a holiday in general.
+The provided dataset is a structured compilation of films with a central theme or element of holidays, spanning almost a century from 1929 to 2022. The dataset includes various attributes such as the original title of the movie, its release year, the runtime in minutes, the genre(s), a simplified title, the average rating, the number of votes the movie received, and boolean indicators for its association with major holidays like Christmas, Hanukkah, Kwanzaa, and whether it is related to a holiday in general. We performed exploratory data analysis on the dataset to discover trends and interesting insights and did some further analysis to answer the following two questions: How have popular movies been changing over the decades? What kind of holiday movies earn the most money?
 
 ## How have popular movies changed over the decades?
 
@@ -27,25 +27,171 @@ For the visual analysis, two types of plots will be created. The first plot will
 ### Analysis 
 
 ```{python}
-#import libraries
+#| label: import-libraries
+
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+import missingno as msno
 ```
 
 ```{python}
-# Load the dataset
+#| label: load-holiday-movies
+
 df = pd.read_csv('data/holiday_movies.csv')
+# display the first five rows of the dataset
+df.head()
+```
+
+```{python}
+#| label: describe-data-variables-and-data-types
+
+# check data info
+df.info()
+```
+
+The data has 14 columns with varying data types. 
+
+```{python}
+#| label: describe-data-shape
+
+# check data shape
+df.shape
+```
+
+The data has 2265 rows and 14 columns.
+
+```{python}
+#| label: load-holiday-movies-genres
+
 new_genres = pd.read_csv('data/holiday_movie_genres.csv')
+# display the first five rows of the dataset
+new_genres.head()
+```
+
+
+#### Exploratory Data Analysis
+We performed exploratory data analysis to discover insights and trends in the dataset based on the variables. This step helps to uncover some interesting patterns to understand the data better.
+
+```{python}
+#| label: year-EDA
+
+# summary statistics
+print(df['year'].describe())
+
+# histogram
+sns.displot(data = df, x = "year", 
+            bins = 15, height = 5, aspect = 8/5)
+plt.title('Histogram of the Year of Movies')
+plt.show()
+```
+
+The histogram above shows an interesting insight: a significant number of movies were released between the year 2000 and 2020. 
+
+```{python}
+#| label: runtime-minutes-EDA
+
+print(df['runtime_minutes'].describe())
+
+# histogram
+sns.displot(data = df, x = "runtime_minutes", 
+            bins = 15, height = 5, aspect = 8/5)
+plt.title('Histogram of the Runtime Minutes of Movies')
+plt.show()
+```
+
+The histogram above shows that most movies have a run time between 50 and 100 minutes. There are more movies that are slightly below the 100 minutes mark as seen in the bar spike. 
+
+```{python}
+#| label: average-rating-EDA
+
+print(df['average_rating'].describe())
+
+# histogram
+sns.displot(data = df, x = "average_rating", 
+            bins = 15, height = 5, aspect = 8/5)
+plt.title('Histogram of the Average Rating of Movies')
+plt.show()
+```
+
+* The maximum average rating is 10 and the mimimum is 1. The median is 6.1.
+* The average rating of movies from the histogram appears to be normally distributed.
+
+```{python}
+#| label: categorical-variables-EDA
+
+print(df.describe(exclude = [np.number]))
+
+# bar plot of top 10 movie titles
+top_10_movie_title = df['original_title'].value_counts()[:10]
+top_10_movie_title.plot(kind='barh',figsize=(10,8))
+plt.title('Top 10 Movie Titles')
+plt.show()
+
+# bar plot for title type
+title_type = df['title_type'].value_counts()
+title_type.plot(kind='bar',figsize=(10,8))
+plt.title('Top 10 Movie Title Types')
+plt.xticks(rotation=0)
+plt.show()
+
+# bar plot for genres
+top_10_genres = df['genres'].value_counts()[:10]
+top_10_genres.plot(kind='barh',figsize=(10,8))
+plt.title('Top 10 Movie Genres')
+plt.show()
+
+```
+
+From the plots bar plots above, we can observe the following:
+* The most popular holiday movie title is "A Christmas Carol".
+* tvMovie is the most popular title type. 
+* Comedy is the most popular holiday movie genre
+
+```{python}
+#| label: scatter-plots-association
+
+# association between runtime_minutes and num_votes
+sns.set_theme(style = "whitegrid")
+sns.scatterplot(data = df, x = "runtime_minutes", y = "num_votes")
+plt.show()
+
+# association between runtime_minutes and average_rating
+sns.set_theme(style = "whitegrid")
+sns.scatterplot(data = df, x = "runtime_minutes", y = "average_rating")
+plt.show()
+
+# association between year and runtime_minutes
+sns.set_theme(style = "whitegrid")
+sns.scatterplot(data = df, x = "year", y = "runtime_minutes")
+plt.show()
+```
+
+From the scatter plots above, we can conclude that:
+* There is no distinct pattern to show a relationship between the runtime_minutes and num_votes
+* There is no distinct pattern to show a relationship between the runtime_minutes and average_rating
+* There is no distinct pattern to show a relationship between the year and runtime_minutes
+
+#### Data Preprocessing
+Data preprocessing involves cleaning and transforming the data in a presentable and understandable format for further analysis. This step ensures that the quality of data is improved before answering pre-defined questions. 
+
+```{python}
+#| label: Identify-missing-values
 
 # Check for missing values
-missing_values = df.isnull().sum()
-print(missing_values)
+df.isnull().sum()
+msno.bar(df, figsize = (7, 5), fontsize = 10)
+plt.tight_layout()
+plt.show()
+```
 
-# Strategy for handling missing values
-# Drop rows where 'genres' is missing and use .copy() to avoid SettingWithCopyWarning
+Runtime minutes and genres are the only two variables with missing values. 
+
+```{python}
+#| label: handling-missing-values
+
+# Drop rows where 'genres' is missing 
 df_cleaned = df.dropna(subset=['genres']).copy()
 
 # Impute missing values in 'runtime_minutes' with the median of the non-missing values
@@ -55,8 +201,11 @@ df_cleaned.loc[:, 'runtime_minutes'] = df_cleaned['runtime_minutes'].fillna(medi
 # Verify the imputation by checking if there are still missing values in 'runtime_minutes'
 missing_after_imputation = df_cleaned.isnull().sum()
 print(f"Missing Value after modification : {missing_after_imputation}")
+```
 
-# Create new variables on the cleaned dataset
+```{python}
+#| label: Create-new-variables 
+
 # Calculate the length of each movie title using .loc to safely modify the DataFrame
 df_cleaned.loc[:, 'title_length'] = df_cleaned['original_title'].apply(len)
 
@@ -73,12 +222,15 @@ top_movies = df_cleaned[df_cleaned['rating_quartile'] >= 2].copy()
 top_movies.loc[:, 'decade'] = (top_movies['year'] // 10) * 10
 
 #Merge the new genre dataset with the  existing cleaned DataFrame
-merged_df = pd.merge(top_movies, new_genres, on='tconst', how='left')
+merged_df = pd.merge(top_movies, new_genres, on = 'tconst', how = 'left')
 
+# display the first five rows of top_movies
+top_movies.head()
 ```
 
+
 ```{python}
-# Genre Analysis
+#| label: Genre-Analysis
 
 # Count the frequency of each genre within the 3rd and 4th rating quartiles
 genre_counts = merged_df['genres_y'].value_counts()
@@ -88,26 +240,34 @@ plt.xlabel('Number of Movies')
 plt.ylabel('Genre')
 plt.title('Most Common Genres Among Top-Rated Holiday Movies')
 plt.show()
+```
 
-# Duration Analysis plot
+From the genre distribution bar plot, we can observe that Comedy and Drama are the most common genres among top-rated holiday movies. This predominance might suggest that audiences tend to prefer lighter and more emotionally resonant stories during holiday seasons, which aligns with the festive and familial spirit of such times. Family and Romance genres follow, which further emphasizes the desire for movies that bring people together, reflecting typical holiday themes centered around love, family, and togetherness.
+
+```{python}
+#| label: Duration-Analysis-plot
 
 # Create a boxplot to visualize the distribution of movie runtimes across different rating quartiles
 # 'x' specifies the categorical variable 'rating_quartile' for the x-axis
 # 'y' specifies the numerical variable 'runtime_minutes' for the y-axis
 plt.figure(figsize=(12, 8))
-sns.boxplot(x="rating_quartile", y="runtime_minutes", data=top_movies)
+sns.boxplot(x = "rating_quartile", y = "runtime_minutes", data=top_movies)
 plt.xlabel("Rating Quartile")
 plt.ylabel("Runtime(min)")
 plt.title("Rating Quartile vs Runtime in Movies")
 plt.show()
+```
 
-#Title Length Analysis plot
+The plot showcasing the relationship between movie runtime and rating quartile indicates that there isn't a strong preference for movie length within the top rating quartiles. While there is a concentration of movies with runtimes around 100 minutes (typical for standard feature films), the presence of highly-rated movies with longer runtimes suggests that a film's duration is less significant to its reception compared to other factors such as story, acting, and direction. However, the spread of runtimes in the 3rd quartile is narrower than in the 4th, hinting that exceptionally well-received movies might have a tighter consistency in their duration.
+
+```{python}
+#| label: Title-Length-Analysis-plot
 
 # Create a line plot to visualize the relationship between the length of movie titles and their average ratings
 # 'x' specifies the numerical variable 'title_length' for the x-axis
 # 'y' specifies the numerical variable 'average_rating' for the y-axis
 plt.figure(figsize=(12, 8))
-sns.lineplot(x="title_length", y="average_rating", data=top_movies, color="purple", errorbar=None)
+sns.lineplot(x="title_length", y="average_rating", data = top_movies, color = "purple")
 x_intervals = np.arange(0, max(top_movies['title_length']) + 10, 10)
 plt.xticks(x_intervals)
 plt.xlabel("Title Length")
@@ -117,23 +277,18 @@ plt.show()
 
 ```
 
-## Discussion
-From the genre distribution bar plot, we can observe that Comedy and Drama are the most common genres among top-rated holiday movies. This predominance might suggest that audiences tend to prefer lighter and more emotionally resonant stories during holiday seasons, which aligns with the festive and familial spirit of such times. Family and Romance genres follow, which further emphasizes the desire for movies that bring people together, reflecting typical holiday themes centered around love, family, and togetherness.
-
-The second plot, showcasing the relationship between movie runtime and rating quartile, indicates that there isn't a strong preference for movie length within the top rating quartiles. While there is a concentration of movies with runtimes around 100 minutes (typical for standard feature films), the presence of highly-rated movies with longer runtimes suggests that a film's duration is less significant to its reception compared to other factors such as story, acting, and direction. However, the spread of runtimes in the 3rd quartile is narrower than in the 4th, hinting that exceptionally well-received movies might have a tighter consistency in their duration.
-
 The line plot correlating title length with average rating shows a more erratic relationship. While no clear trend is discernible, there appears to be a slight tendency for movies with shorter titles to have higher ratings, although there are exceptions at various points. This might imply that conciseness in a title could be associated with a film's memorability or marketing effectiveness, but the numerous outliers make it difficult to draw a definitive conclusion.
-``
+
 ## What kind of holiday movies earn the most money?
 
 ### Introduction
-We will look at the correlations between movie features (such as year of production, duration, length of title, rating, genres, and type of holiday) and the amount of earnings the movie generated. For that, we will supplement the existing dataset with box office information using IMDb's API. These observations may be useful in developing a model for estimating the investment worthiness of a movie (whether in production stage or adding an existing movie to a portfolio).
+* We will look at the correlations between movie features (such as year of production, duration, length of title, rating, genres, and type of holiday) and the amount of earnings the movie generated. For that, we will supplement the existing dataset with box office information using IMDb's API. These observations may be useful in developing a model for estimating the investment worthiness of a movie (whether in production stage or adding an existing movie to a portfolio).
 
 ### Approach
-At first glance, the *tconst* column in the dataset may seem redundant. After all, we have the indices, why would we need other identifiers? These variables become useful when we need to get additional data about the movies. Using IMDB's API, we will populate a new column called *earnings*. It will allow us to answer our question and make additional useful observations.
+* At first glance, the *tconst* column in the dataset may seem redundant. After all, we have the indices, why would we need other identifiers? These variables become useful when we need to get additional data about the movies. Using IMDB's API, we will populate a new column called *earnings*. It will allow us to answer our question and make additional useful observations.
 
 ### Analysis
-In order to not expose the API key and not to waste many minute of time on real-time execution, the code below is not executable. Instead, we will generate the *earnings* column once, update a copy of our dataset and have it readily available in the /data folder. The function below does just that: using the *tconst* variable, it makes a call to IMDb's API and returns the gross movie earnings.
+* In order to not expose the API key and not to waste many minutes of time on real-time execution, the code below is not executable. Instead, we will generate the *earnings* column once, update a copy of our dataset and have it readily available in the /data folder. The function below does just that: using the *tconst* variable, it makes a call to IMDb's API and returns the gross movie earnings.
 
 ```
 import json
@@ -186,27 +341,32 @@ def get_earnings(tconst)
 *Disclaimer: IMDb's API is extremely pricey, so we do not make actual calls, but rather simulate the data for demonstrative purposes. However, all the shown functions and actions have been carefully crafted in accordance with IMDb's API documentation. They will work provided a valid API key*
 
 We load the data in and convert the values into millions of USD by dividing every value by 1,000,000. Then we will proceed to explore a few relationships to see if any features in our dataset correlate to earnings.
+
 ```{python}
 #| label: load-earnings-data
 
 df_earnings = pd.read_csv('data/holiday_movies_earnings.csv')
 
-df_earnings['earnings'] = df_earnings['earnings'] // 1000000  # earnings in mln $
+# earnings in million dollars
+df_earnings['earnings'] = df_earnings['earnings'] // 1000000 
 df_earnings.head()
 ```
 
-We can observe that there are more outliers before 1980. There are both extremely high earners and movies that made very little. There is less data on older movies, so this information has to be taken with a grain of salt. It could be simply a result of too few datapoints.
+
 ```{python}
 #| label: year-earnings-relationship
 
 data_copy = df_earnings.copy()
 averages = data_copy.groupby('year')['earnings'].mean()
 
-scatter = sns.scatterplot(data=averages.to_frame(), x="year", y="earnings")
-labels = scatter.set(xlabel ="Year", ylabel = "Earnings (in mln USD)", title ="Year-earnings relationship")
+scatter = sns.scatterplot(data=averages.to_frame(), x = "year", y = "earnings")
+labels = scatter.set(xlabel = "Year", ylabel = "Earnings (in mln USD)", title = "Year-earnings relationship")
+plt.show()
 ```
 
-As we may intuitively expect, there indeed seems to be a correlation between the average rating of a movie and its earnings. The more people like the movie, the more tickets it sells.
+From the plot above, we can observe that there are more outliers before 1980. There are both extremely high earners and movies that made very little. There is less data on older movies, so this information has to be taken with a grain of salt. It could be simply a result of too few datapoints.
+
+
 ```{python}
 
 #| label: rating-earnings-relationship
@@ -214,8 +374,10 @@ As we may intuitively expect, there indeed seems to be a correlation between the
 data_copy = df_earnings.copy()
 averages = data_copy.groupby('average_rating')['earnings'].mean()
 
-scatter = sns.scatterplot(data=averages.to_frame(), x="average_rating", y="earnings")
-labels = scatter.set(xlabel ="Rating", ylabel = "Earnings (in mln USD)", title ="Rating-earnings relationship")
+scatter = sns.scatterplot(data=averages.to_frame(),x = "average_rating", y = "earnings")
+labels = scatter.set(xlabel ="Rating", ylabel = "Earnings (in mln USD)", title = "Rating-earnings relationship")
+plt.show()
 ```
 
+As we may intuitively expect from the above plot, there indeed seems to be a correlation between the average rating of a movie and its earnings. The more people like the movie, the more tickets it sells.
 
