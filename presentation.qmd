@@ -57,6 +57,11 @@ plt.rcParams['figure.figsize'] = (6, 6 * 0.618)
 df = pd.read_csv('data/holiday_movies.csv')
 new_genres = pd.read_csv('data/holiday_movie_genres.csv')
 # display the first five rows of the dataset
+df_earnings = pd.read_csv('data/holiday_movies_earnings.csv')
+
+# earnings in million dollars
+df_earnings['earnings'] = df_earnings['earnings'] // 1000000 
+df_earnings.head()
 
 ```
 
