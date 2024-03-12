@@ -84,8 +84,9 @@ df_earnings.head()
 3.The scatter plot illustrates trends in preferred movie lengths and title lengths throughout time by correlating movie duration and average rating, color-coded by title length.<br><br>
 4.Combining approaches reveals changes in industry trends and consumer tastes over decades in well-known Christmas films.
 
-### Plot {style="font-size: 0.65em;"}
-
+## Plot
+::: panel-tabset
+#### Plot {style="font-size: 0.65em;"}
 ```{python}
 # Drop rows where 'genres' is missing 
 df_cleaned = df.dropna(subset=['genres']).copy()
@@ -129,12 +130,14 @@ plt.title('Most Common Genres Among Top-Rated Holiday Movies')
 plt.show()
 ```
 
-### Insights
+#### Insights
 
 - From the genre distribution bar plot, we can observe that Comedy and Drama are the most common genres among top-rated holiday movies. 
 - This predominance might suggest that audiences tend to prefer lighter and more emotionally resonant stories during holiday seasons, which aligns with the festive and familial spirit of such times. 
 - Family and Romance genres follow, which further emphasizes the desire for movies that bring people together, reflecting typical holiday themes centered around love, family, and togetherness.
 
+
+#### Plot {style="font-size: 0.65em;"}
 ```{python}
 # Create a boxplot to visualize the distribution of movie runtimes across different rating quartiles
 # 'x' specifies the categorical variable 'rating_quartile' for the x-axis
@@ -147,11 +150,12 @@ plt.title("Rating Quartile vs Runtime in Movies")
 plt.show()
 ```
 
-### Insights
+#### Insights
 - The plot showcasing the relationship between movie runtime and rating quartile indicates that there isn’t a strong preference for movie length within the top rating quartiles. 
 - While there is a concentration of movies with runtimes around 100 minutes (typical for standard feature films), the presence of highly-rated movies with longer runtimes suggests that a film’s duration is less significant to its reception compared to other factors such as story, acting, and direction. 
 - However, the spread of runtimes in the 3rd quartile is narrower than in the 4th, hinting that exceptionally well-received movies might have a tighter consistency in their duration.
 
+#### Plot {style="font-size: 0.65em;"}
 ```{python}
 # Create a line plot to visualize the relationship between the length of movie titles and their average ratings
 # 'x' specifies the numerical variable 'title_length' for the x-axis
@@ -166,7 +170,7 @@ plt.title("Title Length vs Average Rating in Movies")
 plt.show()
 ```
 
-### Insights
+#### Insights
 - The line plot correlating title length with average rating shows a more erratic relationship. 
 - While no clear trend is discernible, there appears to be a slight tendency for movies with shorter titles to have higher ratings, although there are exceptions at various points. 
 - This might imply that conciseness in a title could be associated with a film’s memorability or marketing effectiveness, but the numerous outliers make it difficult to draw a definitive conclusion.
@@ -183,7 +187,9 @@ plt.show()
 3. Generate earnings data once and update a copy of the dataset in the /data folder to avoid repeated API calls and ensure efficiency.<br><br>
 4. Ensure data security by not exposing the API key and minimize processing time by pre-fetching earnings data.
 
-### Plot {style="font-size: 0.7em;"}
+## Plot
+::: panel-tabset
+#### Plot {style="font-size: 0.65em;"}
 
 ```{python}
 data_copy = df_earnings.copy()
@@ -194,11 +200,11 @@ labels = scatter.set(xlabel = "Year", ylabel = "Earnings (in mln USD)", title = 
 plt.show()
 ```
 
-### Insights
+#### Insights
 - By observing, in the plot pre-1980 movies exhibit a higher frequency of outliers.
 - These outliers represent films with either exceptionally high earnings or minimal returns. 
 
-### Plot {style="font-size: 0.7em;"}
+#### Plot {style="font-size: 0.7em;"}
 ```{python}
 data_copy = df_earnings.copy()
 averages = data_copy.groupby('average_rating')['earnings'].mean()
@@ -208,12 +214,12 @@ labels = scatter.set(xlabel ="Rating", ylabel = "Earnings (in mln USD)", title =
 plt.show()
 ```
 
-### Insights
+#### Insights
 - As we may intuitively expect from the above plot, there indeed seems to be a correlation between 
   the average rating of a movie and its earnings. 
 - The more people like the movie, the more tickets it sells.
 
-### Plot {style="font-size: 0.7em;"}
+#### Plot {style="font-size: 0.7em;"}
 ```{python}
 # Merge the genre data with the earnings data on the common key (assuming it's 'tconst' here)
 merged_data = pd.merge(new_genres, df_earnings, on='tconst', how='inner')
@@ -237,10 +243,10 @@ plt.xticks(rotation=45)
 plt.show()
 ```
 
-### Insights
+#### Insights
 - The chart displays a range of genres from “Reality-TV” at the top, suggesting the highest average 
   earnings, to “Thriller” at the bottom, indicating the lowest earnings within this visual.
-### Plot {style="font-size: 0.7em;"}
+#### Plot {style="font-size: 0.7em;"}
 ```{python}
 # Initialize an empty list to store average earnings by holiday type
 holiday_earnings_list = []
@@ -269,7 +275,7 @@ plt.title('Average Earnings by Holiday Type')
 plt.show()
 ```
 
-### Insights
+#### Insights
 - The bar chart illustrates that hanukkah-themed movies are the highest earners, followed by films  about christmas in general. 
 - Movies about Holiday and Kwanzaa have notably lower average earnings, suggesting that hanukkah 
   films are the most commercially successful within holiday genres.
