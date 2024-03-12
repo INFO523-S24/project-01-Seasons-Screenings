@@ -1153,7 +1153,7 @@ def get_earnings(tconst)
 </div>
 </div>
 <p>As we may intuitively expect from the above plot, there indeed seems to be a correlation between the average rating of a movie and its earnings. The more people like the movie, the more tickets it sells.</p>
-<div id="f31d2ef1" class="cell" data-execution_count="20">
+<div id="82ae7ef3" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the genre data with the earnings data on the common key (assuming it's 'tconst' here)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>merged_data <span class="op">=</span> pd.merge(new_genres, df_earnings, on<span class="op">=</span><span class="st">'tconst'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>

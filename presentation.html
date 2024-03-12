@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -10,8 +10,8 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.550">
 
-  <meta name="author" content="Author names">
-  <title>Project Title - Project title</title>
+  <meta name="author" content="Surya Vardhan Dama  Rajitha Reddy Tiruthani  Melika Sharifi  Maksim Kulik  Toluwanimi Adegboyega Olorunnisola  Gowtham Gopalakrishnan">
+  <title>Project Title - Exploring Trends in Holiday Movies</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -320,99 +320,75 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="images/watercolour_sys02_img34_teacup-ocean.jpg" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
-  <h1 class="title">Project title</h1>
+<section id="title-slide" data-background-image="images/copy-space-popcorn-with-cinema-tickets.jpg" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
+  <h1 class="title">Exploring Trends in Holiday Movies</h1>
   <p class="subtitle">INFO 523 - Spring 2023 - Project 1</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Author names 
+Surya Vardhan Dama<br> Rajitha Reddy Tiruthani<br> Melika Sharifi<br> Maksim Kulik<br> Toluwanimi Adegboyega Olorunnisola<br> Gowtham Gopalakrishnan 
 </div>
 </div>
 </div>
 
 </section>
-<section>
-<section id="using-quarto-for-presentations" class="title-slide slide level1 center">
-<h1>Using Quarto for presentations</h1>
-
-</section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
+<section id="introduction" class="slide level2" style="font-size: 0.7em;">
+<h2>Introduction</h2>
 <ul>
-<li><p>The presentation is created using the Quarto CLI</p></li>
-<li><p><code>##</code> sets the start of a new slide</p></li>
+<li>Our Project explores a dataset covering holiday-themed films from 1929 to 2022, including details like movie titles, release years, runtime, genres, ratings, and holiday associations.</li>
+<li>The dataset includes crucial information such as movie titles, release years, runtime, genres, ratings, and indicators for major holidays like Christmas, Hanukkah, and Kwanzaa.</li>
+<li>Our analysis looked at how popular holiday movies have changed from the 1920s to the 2020s, showing how audience tastes and movie styles evolved.</li>
+<li>We also examined, which types of holiday movies tend to earn the most money, helping filmmakers and studios understand what audiences are willing to pay for.</li>
 </ul>
 </section>
-<section id="layouts" class="slide level2">
-<h2>Layouts</h2>
-<p>You can use plain text</p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<ul>
-<li>or bullet points<sup>1</sup></li>
-</ul>
-</div><div class="column" style="width:60%;">
-<p>or in two columns</p>
-</div>
-</div>
-<ul>
-<li><p>like</p></li>
-<li><p>this</p></li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>And add footnotes</p></li></ol></aside></section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<div class="cell" data-execution_count="4">
-<div class="cell-output cell-output-stdout">
-<pre><code>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:                    mpg   R-squared:                       0.073
-Model:                            OLS   Adj. R-squared:                  0.070
-Method:                 Least Squares   F-statistic:                     30.59
-Date:                Tue, 05 Dec 2023   Prob (F-statistic):           5.84e-08
-Time:                        15:17:43   Log-Likelihood:                -1346.4
-No. Observations:                 392   AIC:                             2697.
-Df Residuals:                     390   BIC:                             2705.
-Df Model:                           1                                         
-Covariance Type:            nonrobust                                         
-==============================================================================
-                 coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------
-const         35.8015      2.266     15.800      0.000      31.347      40.257
-speed       -354.7055     64.129     -5.531      0.000    -480.788    -228.623
-==============================================================================
-Omnibus:                       27.687   Durbin-Watson:                   0.589
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               18.976
-Skew:                           0.420   Prob(JB):                     7.57e-05
-Kurtosis:                       2.323   Cond. No.                         169.
-==============================================================================
-
-Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
-</div>
-</div>
+<section id="question-1" class="slide level2" style="font-size: 0.7em;">
+<h2>Question 1:</h2>
+<p><strong>How have popular movies changed over the decades?</strong></p>
 </section>
-<section id="plots" class="slide level2">
-<h2>Plots</h2>
-
-<img data-src="presentation_files/figure-revealjs/cell-6-output-1.png" class="r-stretch"></section>
-<section id="plot-and-text" class="slide level2">
-<h2>Plot and text</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="approach" class="slide level2" style="font-size: 0.7em;">
+<h2>Approach</h2>
+<p><br> 1.Quartile approach ensures representative observations by identifying popular films based on average ratings.<br><br> 2.To identify changes in the popularity of a genre, a multifaceted bar chart shows the genre distribution in the top quartiles across several decades.<br><br> 3.The scatter plot illustrates trends in preferred movie lengths and title lengths throughout time by correlating movie duration and average rating, color-coded by title length.<br><br> 4.Combining approaches reveals changes in industry trends and consumer tastes over decades in well-known Christmas films.</p>
+<h3 style="font-size: 0.65em;" id="plot">Plot</h3>
+<div id="f63710d4" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentation_files/figure-revealjs/cell-5-output-1.png"></p>
+</figure>
+</div>
+</div>
+</div>
+<h3 id="insights">Insights</h3>
 <ul>
-<li><p>Some text</p></li>
-<li><p>goes here</p></li>
+<li>From the genre distribution bar plot, we can observe that Comedy and Drama are the most common genres among top-rated holiday movies.</li>
+<li>This predominance might suggest that audiences tend to prefer lighter and more emotionally resonant stories during holiday seasons, which aligns with the festive and familial spirit of such times.</li>
+<li>Family and Romance genres follow, which further emphasizes the desire for movies that bring people together, reflecting typical holiday themes centered around love, family, and togetherness.</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-fig.width="5.5" data-execution_count="6">
+<div id="4ac127cf" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentation_files/figure-revealjs/cell-6-output-1.png"></p>
+</figure>
+</div>
+</div>
+</div>
+<h3 id="insights-1">Insights</h3>
+<ul>
+<li>The plot showcasing the relationship between movie runtime and rating quartile indicates that there isn’t a strong preference for movie length within the top rating quartiles.</li>
+<li>While there is a concentration of movies with runtimes around 100 minutes (typical for standard feature films), the presence of highly-rated movies with longer runtimes suggests that a film’s duration is less significant to its reception compared to other factors such as story, acting, and direction.</li>
+<li>However, the spread of runtimes in the 3rd quartile is narrower than in the 4th, hinting that exceptionally well-received movies might have a tighter consistency in their duration.</li>
+</ul>
+<div id="a493d84c" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -421,284 +397,100 @@ Notes:
 </div>
 </div>
 </div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="a-new-section" class="title-slide slide level1 center">
-<h1>A new section…</h1>
-
-</section>
-<section id="tables" class="slide level2">
-<h2>Tables</h2>
-<p>If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,</p>
-<div class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="14">
-<table border="1" class="dataframe">
-
-<thead>
-
-<tr style="text-align: right;">
-
-<th>
-</th>
-
-<th>
-species
-</th>
-
-<th>
-island
-</th>
-
-<th>
-bill_length_mm
-</th>
-
-<th>
-bill_depth_mm
-</th>
-
-<th>
-flipper_length_mm
-</th>
-
-<th>
-body_mass_g
-</th>
-
-<th>
-sex
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<th>
-0
-</th>
-
-<td>
-Adelie
-</td>
-
-<td>
-Torgersen
-</td>
-
-<td>
-39.1
-</td>
-
-<td>
-18.7
-</td>
-
-<td>
-181.0
-</td>
-
-<td>
-3750.0
-</td>
-
-<td>
-Male
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-1
-</th>
-
-<td>
-Adelie
-</td>
-
-<td>
-Torgersen
-</td>
-
-<td>
-39.5
-</td>
-
-<td>
-17.4
-</td>
-
-<td>
-186.0
-</td>
-
-<td>
-3800.0
-</td>
-
-<td>
-Female
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-2
-</th>
-
-<td>
-Adelie
-</td>
-
-<td>
-Torgersen
-</td>
-
-<td>
-40.3
-</td>
-
-<td>
-18.0
-</td>
-
-<td>
-195.0
-</td>
-
-<td>
-3250.0
-</td>
-
-<td>
-Female
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-4
-</th>
-
-<td>
-Adelie
-</td>
-
-<td>
-Torgersen
-</td>
-
-<td>
-36.7
-</td>
-
-<td>
-19.3
-</td>
-
-<td>
-193.0
-</td>
-
-<td>
-3450.0
-</td>
-
-<td>
-Female
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-5
-</th>
-
-<td>
-Adelie
-</td>
-
-<td>
-Torgersen
-</td>
-
-<td>
-39.3
-</td>
-
-<td>
-20.6
-</td>
-
-<td>
-190.0
-</td>
-
-<td>
-3650.0
-</td>
-
-<td>
-Male
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
-</section>
-<section id="images" class="slide level2">
-<h2>Images</h2>
-
-<img data-src="images/watercolour_sys02_img34_teacup-ocean.png" class="quarto-figure quarto-figure-center r-stretch" width="500"><p class="caption">Image credit: Danielle Navarro, Percolate.</p></section>
-<section id="math-expressions" class="slide level2 smaller">
-<h2>Math Expressions</h2>
-<p>You can write LaTeX math expressions inside a pair of dollar signs, e.g.&nbsp;$\alpha+\beta$ renders <span class="math inline">\(\alpha + \beta\)</span>. You can use the display style with double dollar signs:</p>
-<pre><code>$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$</code></pre>
-<p><span class="math display">\[
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-\]</span></p>
-<p>Limitations:</p>
-<ol type="1">
-<li><p>The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting <code>$$</code> must appear in the very beginning of a line, followed immediately by a non-space character, and the ending <code>$$</code> must be at the end of a line, led by a non-space character;</p></li>
-<li><p>There should not be spaces after the opening <code>$</code> or before the closing <code>$</code>.</p></li>
-</ol>
-</section></section>
-<section>
-<section id="wrap-up" class="title-slide slide level1 center">
-<h1>Wrap up</h1>
-
-</section>
-<section id="feeling-adventurous" class="slide level2">
-<h2>Feeling adventurous?</h2>
+<h3 id="insights-2">Insights</h3>
 <ul>
-<li><p>You are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.</p></li>
-<li><p>But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.</p></li>
+<li>The line plot correlating title length with average rating shows a more erratic relationship.</li>
+<li>While no clear trend is discernible, there appears to be a slight tendency for movies with shorter titles to have higher ratings, although there are exceptions at various points.</li>
+<li>This might imply that conciseness in a title could be associated with a film’s memorability or marketing effectiveness, but the numerous outliers make it difficult to draw a definitive conclusion.</li>
 </ul>
+</section>
+<section id="question-2" class="slide level2" style="font-size: 0.7em;">
+<h2>Question 2:</h2>
+<p>**What kind of holiday movies earn the most money?</p>
+</section>
+<section id="approach-1" class="slide level2" style="font-size: 0.7em;">
+<h2>Approach</h2>
+<p><br> 1. We investigated correlations between movie features and earnings, and by utilizing IMDb’s API to supplement dataset with box office information.<br><br> 2. which Populated a new “earnings” column using IMDb’s API and unique movie identifiers (tconst), enabling analysis without exposing API key or executing real-time calls.<br><br> 3. Generate earnings data once and update a copy of the dataset in the /data folder to avoid repeated API calls and ensure efficiency.<br><br> 4. Ensure data security by not exposing the API key and minimize processing time by pre-fetching earnings data.</p>
+<h3 style="font-size: 0.7em;" id="plot-1">Plot</h3>
+<div id="d528c558" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentation_files/figure-revealjs/cell-8-output-1.png"></p>
+</figure>
+</div>
+</div>
+</div>
+<h3 id="insights-3">Insights</h3>
+<ul>
+<li>By observing, in the plot pre-1980 movies exhibit a higher frequency of outliers.</li>
+<li>These outliers represent films with either exceptionally high earnings or minimal returns.</li>
+</ul>
+<h3 style="font-size: 0.7em;" id="plot-2">Plot</h3>
+<div id="70f0d7a0" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentation_files/figure-revealjs/cell-9-output-1.png"></p>
+</figure>
+</div>
+</div>
+</div>
+<h3 id="insights-4">Insights</h3>
+<ul>
+<li>As we may intuitively expect from the above plot, there indeed seems to be a correlation between the average rating of a movie and its earnings.</li>
+<li>The more people like the movie, the more tickets it sells.</li>
+</ul>
+<h3 style="font-size: 0.7em;" id="plot-3">Plot</h3>
+<div id="64b75ef1" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentation_files/figure-revealjs/cell-10-output-1.png"></p>
+</figure>
+</div>
+</div>
+</div>
+<h3 id="insights-5">Insights</h3>
+<ul>
+<li>The chart displays a range of genres from “Reality-TV” at the top, suggesting the highest average earnings, to “Thriller” at the bottom, indicating the lowest earnings within this visual. ### Plot {style=“font-size: 0.7em;”}</li>
+</ul>
+<div id="0965b9df" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentation_files/figure-revealjs/cell-11-output-1.png"></p>
+</figure>
+</div>
+</div>
+</div>
+<h3 id="insights-6">Insights</h3>
+<ul>
+<li>The bar chart illustrates that hanukkah-themed movies are the highest earners, followed by films about christmas in general.</li>
+<li>Movies about Holiday and Kwanzaa have notably lower average earnings, suggesting that hanukkah films are the most commercially successful within holiday genres.</li>
+</ul>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p>As holiday film trends changed, comedy and drama took center stage. The duration of the film did not greatly affect the ratings.</p>
+<p>The highest-grossing movies are those with Hanukkah themes, followed by traditional Christmas blockbusters. Films with a Kwanzaa or holiday theme made less money. Particular seasonal themes seem to be the most profitable, particularly Hanukkah and Christmas.</p>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+<p>[1] Title: Holiday Movies, Source: tidytuesday, Link: <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-12-12/readme.md" class="uri">https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-12-12/readme.md</a></p>
+<p>[2] Quarto, For documentation and presentation - <a href="https://quarto.org/docs/reference/formats/html.html">Quarto</a></p>
+<p>[3] Our Presentation Background Image - Link: <a href="https://www.freepik.com/free-photo/takeaway-drinking-glass-with-straw-3d-glasses-cinema-tickets-popcorn-box-against-white-backdrop_4822391.htm#query=holiday%20movies&amp;position=9&amp;from_view=keyword&amp;track=ais&amp;uuid=e2271536-4208-428c-b1be-bb42104bece5" class="uri">https://www.freepik.com/free-photo/takeaway-drinking-glass-with-straw-3d-glasses-cinema-tickets-popcorn-box-against-white-backdrop_4822391.htm#query=holiday%20movies&amp;position=9&amp;from_view=keyword&amp;track=ais&amp;uuid=e2271536-4208-428c-b1be-bb42104bece5</a></p>
+</section>
+<section id="thank-you" class="slide level2" style="text-align: center">
+<h2>Thank you</h2>
 
-<div class="quarto-auto-generated-content">
+
+<img data-src="images/thankyou.gif" class="quarto-figure quarto-figure-center r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section></section>
-
+</section>
     </div>
   </div>
 
