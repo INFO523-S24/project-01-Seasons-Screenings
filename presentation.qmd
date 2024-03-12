@@ -9,7 +9,7 @@ author: "Surya Vardhan Dama<br>
         Gowtham Gopalakrishnan"
 
 title-slide-attributes:
-  data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
+  data-background-image: images/copy-space-popcorn-with-cinema-tickets.jpg
   data-background-size: stretch
   data-background-opacity: "0.7"
   data-slide-number: none
@@ -123,6 +123,7 @@ plt.ylabel('Genre')
 plt.title('Most Common Genres Among Top-Rated Holiday Movies')
 plt.show()
 ```
+
 ### Insights
 
 - From the genre distribution bar plot, we can observe that Comedy and Drama are the most common genres among top-rated holiday movies. 
@@ -140,6 +141,7 @@ plt.ylabel("Runtime(min)")
 plt.title("Rating Quartile vs Runtime in Movies")
 plt.show()
 ```
+
 ### Insights
 - The plot showcasing the relationship between movie runtime and rating quartile indicates that there isn’t a strong preference for movie length within the top rating quartiles. 
 - While there is a concentration of movies with runtimes around 100 minutes (typical for standard feature films), the presence of highly-rated movies with longer runtimes suggests that a film’s duration is less significant to its reception compared to other factors such as story, acting, and direction. 
@@ -158,6 +160,7 @@ plt.ylabel("Average Rating")
 plt.title("Title Length vs Average Rating in Movies")
 plt.show()
 ```
+
 ### Insights
 - The line plot correlating title length with average rating shows a more erratic relationship. 
 - While no clear trend is discernible, there appears to be a slight tendency for movies with shorter titles to have higher ratings, although there are exceptions at various points. 
