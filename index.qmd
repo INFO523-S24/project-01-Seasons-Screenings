@@ -381,3 +381,76 @@ plt.show()
 
 As we may intuitively expect from the above plot, there indeed seems to be a correlation between the average rating of a movie and its earnings. The more people like the movie, the more tickets it sells.
 
+```{python}
+# Merge the genre data with the earnings data on the common key (assuming it's 'tconst' here)
+merged_data = pd.merge(new_genres, df_earnings, on='tconst', how='inner')
+
+# Split the genres into lists if they're combined in a single string, assuming they're separated by commas
+merged_data['genres_list'] = merged_data['genresy'].str.split(',')
+
+# Explode the DataFrame so each genre gets its own row
+merged_data_exploded = merged_data.explode('genres_list')
+
+# Calculate the average earnings for each genre
+average_earnings_by_genre = merged_data_exploded.groupby('genres_list')['earnings'].mean().reset_index()
+
+# Create a bar plot to show average earnings by genre
+plt.figure(figsize=(12, 8))
+sns.barplot(x='earnings', y='genres_list', data=average_earnings_by_genre.sort_values('earnings', ascending=False))
+plt.xlabel('Average Earnings (in million USD)')
+plt.ylabel('Genre')
+plt.title('Average Earnings by Movie Genre')
+plt.xticks(rotation=45)
+plt.show()
+
+```
+Thriller, Crime, and Western genres seem to lead the pack with the highest average earnings, with Thriller noticeably ahead. This suggests that movies in these genres, on average, earn more at the box office than other genres.
+
+```{python}
+#| label: duration-earnings-relationship
+# Merge the data on a common key, let's say 'tconst' which should be present in both dataframes
+merged_data = pd.merge(df[['tconst', 'runtime_minutes']], df_earnings[['tconst', 'earnings']], on='tconst', how='inner')
+
+# Now that we have a merged DataFrame with runtime and earnings, we can group by runtime and calculate average earnings
+duration_earnings = merged_data.groupby('runtime_minutes')['earnings'].mean().reset_index()
+
+# Create a scatter plot to visualize the relationship between movie duration and average earnings
+plt.figure(figsize=(12, 8))
+scatter = sns.scatterplot(x="runtime_minutes", y="earnings", data=duration_earnings)
+labels = scatter.set(xlabel="Runtime Minutes", ylabel="Earnings (in million USD)", title="Runtime-Earnings Relationship")
+plt.show()
+```
+there does not appear to be a strong linear relationship between the runtime of a movie and its earnings. The scatter plot does not indicate a clear trend that would suggest longer or shorter movies earn more money consistently.
+
+```{python}
+#| label: holiday-type-earnings-relationship
+
+# Initialize an empty list to store average earnings by holiday type
+holiday_earnings_list = []
+
+# Calculate the average earnings for each holiday type
+for holiday in ['christmas', 'hanukkah', 'kwanzaa', 'holiday']:
+    # Filter the DataFrame to include only movies associated with the holiday
+    holiday_df = merged_data[merged_data[holiday] == True]
+    # Calculate the mean earnings for the holiday
+    average_earnings = holiday_df['earnings'].mean()
+    # Create a dictionary of the results and append to the list
+    holiday_earnings_list.append({'Holiday Type': holiday, 'Average Earnings': average_earnings})
+
+# Convert the list of dictionaries to a DataFrame
+holiday_earnings = pd.DataFrame(holiday_earnings_list)
+
+# Convert the 'Average Earnings' to millions USD for better readability
+holiday_earnings['Average Earnings (in million USD)'] = holiday_earnings['Average Earnings'] / 1e6
+
+# Create a bar plot to show average earnings by holiday type
+plt.figure(figsize=(12, 8))
+sns.barplot(x='Average Earnings (in million USD)', y='Holiday Type', data=holiday_earnings)
+plt.xlabel('Average Earnings (in million USD)')
+plt.ylabel('Holiday Type')
+plt.title('Average Earnings by Holiday Type')
+plt.show()
+
+```
+
+The bar chart illustrates that Christmas-themed movies are the highest earners, followed by films about holidays in general. Movies about Hanukkah and Kwanzaa have notably lower average earnings, suggesting that Christmas films are the most commercially successful within holiday genres.
