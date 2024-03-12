@@ -235,7 +235,7 @@ top_movies.head()
 # Count the frequency of each genre within the 3rd and 4th rating quartiles
 genre_counts = merged_df['genres_y'].value_counts()
 plt.figure(figsize=(12, 8))
-sns.barplot(x=genre_counts.values, y=genre_counts.index, palette='viridis')
+sns.barplot(x = genre_counts.values, y = genre_counts.index, hue = genre_counts.index, palette = 'viridis', legend = False)
 plt.xlabel('Number of Movies')
 plt.ylabel('Genre')
 plt.title('Most Common Genres Among Top-Rated Holiday Movies')
@@ -251,7 +251,7 @@ From the genre distribution bar plot, we can observe that Comedy and Drama are t
 # 'x' specifies the categorical variable 'rating_quartile' for the x-axis
 # 'y' specifies the numerical variable 'runtime_minutes' for the y-axis
 plt.figure(figsize=(12, 8))
-sns.boxplot(x = "rating_quartile", y = "runtime_minutes", data=top_movies)
+sns.boxplot(x = "rating_quartile", y = "runtime_minutes", data = top_movies)
 plt.xlabel("Rating Quartile")
 plt.ylabel("Runtime(min)")
 plt.title("Rating Quartile vs Runtime in Movies")
@@ -267,7 +267,7 @@ The plot showcasing the relationship between movie runtime and rating quartile i
 # 'x' specifies the numerical variable 'title_length' for the x-axis
 # 'y' specifies the numerical variable 'average_rating' for the y-axis
 plt.figure(figsize=(12, 8))
-sns.lineplot(x="title_length", y="average_rating", data = top_movies, color = "purple")
+sns.lineplot(x = "title_length", y = "average_rating", data = top_movies, color = "purple", errorbar = None)
 x_intervals = np.arange(0, max(top_movies['title_length']) + 10, 10)
 plt.xticks(x_intervals)
 plt.xlabel("Title Length")
@@ -386,7 +386,7 @@ As we may intuitively expect from the above plot, there indeed seems to be a cor
 merged_data = pd.merge(new_genres, df_earnings, on='tconst', how='inner')
 
 # Split the genres into lists if they're combined in a single string, assuming they're separated by commas
-merged_data['genres_list'] = merged_data['genresy'].str.split(',')
+merged_data['genres_list'] = merged_data['genres_y'].str.split(',')
 
 # Explode the DataFrame so each genre gets its own row
 merged_data_exploded = merged_data.explode('genres_list')
@@ -404,15 +404,16 @@ plt.xticks(rotation=45)
 plt.show()
 
 ```
+
 Thriller, Crime, and Western genres seem to lead the pack with the highest average earnings, with Thriller noticeably ahead. This suggests that movies in these genres, on average, earn more at the box office than other genres.
 
 ```{python}
 #| label: duration-earnings-relationship
 # Merge the data on a common key, let's say 'tconst' which should be present in both dataframes
-merged_data = pd.merge(df[['tconst', 'runtime_minutes']], df_earnings[['tconst', 'earnings']], on='tconst', how='inner')
+merged_data1 = pd.merge(df[['tconst', 'runtime_minutes']], df_earnings[['tconst', 'earnings']], on='tconst', how='inner')
 
 # Now that we have a merged DataFrame with runtime and earnings, we can group by runtime and calculate average earnings
-duration_earnings = merged_data.groupby('runtime_minutes')['earnings'].mean().reset_index()
+duration_earnings = merged_data1.groupby('runtime_minutes')['earnings'].mean().reset_index()
 
 # Create a scatter plot to visualize the relationship between movie duration and average earnings
 plt.figure(figsize=(12, 8))
@@ -420,7 +421,8 @@ scatter = sns.scatterplot(x="runtime_minutes", y="earnings", data=duration_earni
 labels = scatter.set(xlabel="Runtime Minutes", ylabel="Earnings (in million USD)", title="Runtime-Earnings Relationship")
 plt.show()
 ```
-there does not appear to be a strong linear relationship between the runtime of a movie and its earnings. The scatter plot does not indicate a clear trend that would suggest longer or shorter movies earn more money consistently.
+
+There does not appear to be a strong linear relationship between the runtime of a movie and its earnings. The scatter plot does not indicate a clear trend that would suggest longer or shorter movies earn more money consistently.
 
 ```{python}
 #| label: holiday-type-earnings-relationship
@@ -441,11 +443,11 @@ for holiday in ['christmas', 'hanukkah', 'kwanzaa', 'holiday']:
 holiday_earnings = pd.DataFrame(holiday_earnings_list)
 
 # Convert the 'Average Earnings' to millions USD for better readability
-holiday_earnings['Average Earnings (in million USD)'] = holiday_earnings['Average Earnings'] / 1e6
+#holiday_earnings['Average Earnings (in million USD)'] = holiday_earnings['Average Earnings'] / 1000000
 
 # Create a bar plot to show average earnings by holiday type
 plt.figure(figsize=(12, 8))
-sns.barplot(x='Average Earnings (in million USD)', y='Holiday Type', data=holiday_earnings)
+sns.barplot(x = 'Average Earnings', y = 'Holiday Type', data = holiday_earnings)
 plt.xlabel('Average Earnings (in million USD)')
 plt.ylabel('Holiday Type')
 plt.title('Average Earnings by Holiday Type')
@@ -453,4 +455,4 @@ plt.show()
 
 ```
 
-The bar chart illustrates that Christmas-themed movies are the highest earners, followed by films about holidays in general. Movies about Hanukkah and Kwanzaa have notably lower average earnings, suggesting that Christmas films are the most commercially successful within holiday genres.
+The bar chart illustrates that hanukkah-themed movies are the highest earners, followed by films about holidays in general. Movies about Holiday and Kwanzaa have notably lower average earnings, suggesting that hanukkah films are the most commercially successful within holiday genres.
