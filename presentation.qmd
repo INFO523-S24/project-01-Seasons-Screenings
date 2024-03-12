@@ -168,110 +168,118 @@ plt.show()
 
 ## Question 2:  {style="font-size: 0.7em;"}
 
+**What kind of holiday movies earn the most money?
 
-## Layouts
+## Approach {style="font-size: 0.7em;"}
 
-You can use plain text
+<br>
+1. We investigated correlations between movie features and earnings, and by utilizing IMDb's API to supplement dataset with box office information.<br><br>
+2. which Populated a new "earnings" column using IMDb's API and unique movie identifiers (tconst), enabling analysis without exposing API key or executing real-time calls.<br><br>
+3. Generate earnings data once and update a copy of the dataset in the /data folder to avoid repeated API calls and ensure efficiency.<br><br>
+4. Ensure data security by not exposing the API key and minimize processing time by pre-fetching earnings data.
 
-::: columns
-::: {.column width="40%"}
--   or bullet points[^1]
-:::
-
-::: {.column width="60%"}
-or in two columns
-:::
-:::
-
-[^1]: And add footnotes
-
--   like
-
--   this
-
-## Code
+### Plot {style="font-size: 0.7em;"}
 
 ```{python}
-from sklearn.linear_model import LinearRegression
-import statsmodels.api as sm
-import pandas as pd
+data_copy = df_earnings.copy()
+averages = data_copy.groupby('year')['earnings'].mean()
 
-# Fit a linear regression model
-X = mtcars[['speed']]
-y = mtcars['mpg']
-model = LinearRegression().fit(X, y)
-
-# Summary of the model
-X2 = sm.add_constant(X)
-est = sm.OLS(y, X2)
-est2 = est.fit()
-print(est2.summary())
-```
-
-## Plots
-
-```{python}
-penguins['species'] = penguins['species'].apply(lambda x: "Adelie" if x == "Adelie" else "Other")
-sns.scatterplot(data=penguins, x='flipper_length_mm', y='body_mass_g', hue='species')
+scatter = sns.scatterplot(data=averages.to_frame(), x = "year", y = "earnings")
+labels = scatter.set(xlabel = "Year", ylabel = "Earnings (in mln USD)", title = "Year-earnings relationship")
 plt.show()
 ```
 
-## Plot and text
+### Insights
+- By observing, in the plot pre-1980 movies exhibit a higher frequency of outliers.
+- These outliers represent films with either exceptionally high earnings or minimal returns. 
 
-::: columns
-::: {.column width="50%"}
--   Some text
-
--   goes here
-:::
-
-::: {.column width="50%"}
+### Plot {style="font-size: 0.7em;"}
 ```{python}
-#| warning: false
-#| fig.width: 5.5
-fig, ax = plt.subplots(figsize=(5.5, 5.5 * 0.618))
-sns.boxplot(data=penguins, x='bill_length_mm', y='species', hue='species', ax=ax)
+data_copy = df_earnings.copy()
+averages = data_copy.groupby('average_rating')['earnings'].mean()
+
+scatter = sns.scatterplot(data=averages.to_frame(),x = "average_rating", y = "earnings")
+labels = scatter.set(xlabel ="Rating", ylabel = "Earnings (in mln USD)", title = "Rating-earnings relationship")
 plt.show()
 ```
-:::
-:::
 
-# A new section...
+### Insights
+- As we may intuitively expect from the above plot, there indeed seems to be a correlation between 
+  the average rating of a movie and its earnings. 
+- The more people like the movie, the more tickets it sells.
 
-## Tables
-
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
-
+### Plot {style="font-size: 0.7em;"}
 ```{python}
-penguins.head().to_html()
+# Merge the genre data with the earnings data on the common key (assuming it's 'tconst' here)
+merged_data = pd.merge(new_genres, df_earnings, on='tconst', how='inner')
+
+# Split the genres into lists if they're combined in a single string, assuming they're separated by commas
+merged_data['genres_list'] = merged_data['genres_y'].str.split(',')
+
+# Explode the DataFrame so each genre gets its own row
+merged_data_exploded = merged_data.explode('genres_list')
+
+# Calculate the average earnings for each genre
+average_earnings_by_genre = merged_data_exploded.groupby('genres_list')['earnings'].mean().reset_index()
+
+# Create a bar plot to show average earnings by genre
+plt.figure(figsize=(12, 8))
+sns.barplot(x='earnings', y='genres_list', data=average_earnings_by_genre.sort_values('earnings', ascending=False))
+plt.xlabel('Average Earnings (in million USD)')
+plt.ylabel('Genre')
+plt.title('Average Earnings by Movie Genre')
+plt.xticks(rotation=45)
+plt.show()
 ```
 
-## Images
+### Insights
+- The chart displays a range of genres from “Reality-TV” at the top, suggesting the highest average 
+  earnings, to “Thriller” at the bottom, indicating the lowest earnings within this visual.
+### Plot {style="font-size: 0.7em;"}
+```{python}
+# Initialize an empty list to store average earnings by holiday type
+holiday_earnings_list = []
 
-![Image credit: Danielle Navarro, Percolate.](images/watercolour_sys02_img34_teacup-ocean.png){fig-align="center" width="500"}
+# Calculate the average earnings for each holiday type
+for holiday in ['christmas', 'hanukkah', 'kwanzaa', 'holiday']:
+    # Filter the DataFrame to include only movies associated with the holiday
+    holiday_df = merged_data[merged_data[holiday] == True]
+    # Calculate the mean earnings for the holiday
+    average_earnings = holiday_df['earnings'].mean()
+    # Create a dictionary of the results and append to the list
+    holiday_earnings_list.append({'Holiday Type': holiday, 'Average Earnings': average_earnings})
 
-## Math Expressions {.smaller}
+# Convert the list of dictionaries to a DataFrame
+holiday_earnings = pd.DataFrame(holiday_earnings_list)
 
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. \$\\alpha+\\beta\$ renders $\alpha + \beta$. You can use the display style with double dollar signs:
+# Convert the 'Average Earnings' to millions USD for better readability
+#holiday_earnings['Average Earnings (in million USD)'] = holiday_earnings['Average Earnings'] / 1000000
 
-```         
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
+# Create a bar plot to show average earnings by holiday type
+plt.figure(figsize=(12, 8))
+sns.barplot(x = 'Average Earnings', y = 'Holiday Type', data = holiday_earnings)
+plt.xlabel('Average Earnings (in million USD)')
+plt.ylabel('Holiday Type')
+plt.title('Average Earnings by Holiday Type')
+plt.show()
 ```
 
-$$
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-$$
+### Insights
+- The bar chart illustrates that hanukkah-themed movies are the highest earners, followed by films  about christmas in general. 
+- Movies about Holiday and Kwanzaa have notably lower average earnings, suggesting that hanukkah 
+  films are the most commercially successful within holiday genres.
 
-Limitations:
+## Conclusion
+As holiday film trends changed, comedy and drama took center stage. The duration of the film did not greatly affect the ratings.
 
-1.  The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
+The highest-grossing movies are those with Hanukkah themes, followed by traditional Christmas blockbusters. Films with a Kwanzaa or holiday theme made less money. Particular seasonal themes seem to be the most profitable, particularly Hanukkah and Christmas.
 
-2.  There should not be spaces after the opening `$` or before the closing `$`.
+## References
+\[1\] Title: Holiday Movies, Source: tidytuesday, Link: <https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-12-12/readme.md>
 
-# Wrap up
+\[2\] Quarto, For documentation and presentation - [Quarto](https://quarto.org/docs/reference/formats/html.html)
 
-## Feeling adventurous?
+\[3\] Our Presentation Background Image - Link: <https://www.freepik.com/free-photo/takeaway-drinking-glass-with-straw-3d-glasses-cinema-tickets-popcorn-box-against-white-backdrop_4822391.htm#query=holiday%20movies&position=9&from_view=keyword&track=ais&uuid=e2271536-4208-428c-b1be-bb42104bece5>
 
--   You are welcomed to use the default styling of the slides. In fact, that's what I expect majority of you will do. You will differentiate yourself with the content of your presentation.
-
--   But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.
+## Thank you {style="text-align: center"}
+![](images/thankyou.gif){fig-align="center"}
