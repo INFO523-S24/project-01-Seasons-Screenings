@@ -405,7 +405,7 @@ plt.show()
 
 ```
 
-Thriller, Crime, and Western genres seem to lead the pack with the highest average earnings, with Thriller noticeably ahead. This suggests that movies in these genres, on average, earn more at the box office than other genres.
+ The chart displays a range of genres from "Reality-TV" at the top, suggesting the highest average earnings, to "Thriller" at the bottom, indicating the lowest earnings within this visual.
 
 ```{python}
 #| label: duration-earnings-relationship
