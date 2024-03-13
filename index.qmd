@@ -3,6 +3,9 @@ title: "Season's Screenings: Exploring Trends in Holiday Movies"
 subtitle: "INFO 523 - Project 1"
 author: "Season's Screenings"
 format: html
+execute:
+   warning: false
+   error: false
 editor: visual
 jupyter: python3
 ---
