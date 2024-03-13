@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.550">
 
   <meta name="author" content="Surya Vardhan Dama  Rajitha Reddy Tiruthani  Melika Sharifi  Maksim Kulik  Toluwanimi Adegboyega Olorunnisola  Gowtham Gopalakrishnan">
-  <title>Project Title - Exploring Trends in Holiday Movies</title>
+  <title> Exploring Trends in Holiday Movies - Exploring Trends in Holiday Movies</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -244,6 +244,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -330,7 +331,7 @@
 
 <section id="title-slide" data-background-image="images/copy-space-popcorn-with-cinema-tickets.jpg" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Exploring Trends in Holiday Movies</h1>
-  <p class="subtitle">INFO 523 - Spring 2023 - Project 1</p>
+  <p class="subtitle">INFO 523 - Spring 2024 - Project 1</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -359,13 +360,13 @@ Surya Vardhan Dama<br> Rajitha Reddy Tiruthani<br> Melika Sharifi<br> Maksim Kul
 <h2>Approach</h2>
 <p><br> 1.Quartile approach ensures representative observations by identifying popular films based on average ratings.<br><br> 2.To identify changes in the popularity of a genre, a multifaceted bar chart shows the genre distribution in the top quartiles across several decades.<br><br> 3.The scatter plot illustrates trends in preferred movie lengths and title lengths throughout time by correlating movie duration and average rating, color-coded by title length.<br><br> 4.Combining approaches reveals changes in industry trends and consumer tastes over decades in well-known Christmas films.</p>
 </section>
-<section id="plot" class="slide level2">
-<h2>Plot</h2>
+<section id="most-popular-genres-in-highest-rated-holiday-films" class="slide level2" style="font-size: 0.65em;">
+<h2>Most popular genres in highest-rated holiday films</h2>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Plot</a></li><li><a href="#tabset-1-2">Insights</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="506955a5" class="cell" data-execution_count="4">
+<div id="594a0be5" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -385,13 +386,13 @@ Surya Vardhan Dama<br> Rajitha Reddy Tiruthani<br> Melika Sharifi<br> Maksim Kul
 </div>
 </div>
 </section>
-<section id="plot-2" class="slide level2">
-<h2>Plot</h2>
+<section id="the-distribution-of-movie-runtimes-across-different-rating-quartiles" class="slide level2" style="font-size: 0.65em;">
+<h2>The distribution of movie runtimes across different rating quartiles</h2>
 <div class="panel-tabset">
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Plot</a></li><li><a href="#tabset-2-2">Insights</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div id="86dab947" class="cell" data-execution_count="5">
+<div id="013c40f9" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -411,13 +412,13 @@ Surya Vardhan Dama<br> Rajitha Reddy Tiruthani<br> Melika Sharifi<br> Maksim Kul
 </div>
 </div>
 </section>
-<section id="plot-4" class="slide level2">
-<h2>Plot</h2>
+<section id="the-relationship-between-the-length-of-movie-titles-and-their-average-ratings" class="slide level2" style="font-size: 0.65em;">
+<h2>The relationship between the length of movie titles and their average ratings</h2>
 <div class="panel-tabset">
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Plot</a></li><li><a href="#tabset-3-2">Insights</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div id="df85374b" class="cell" data-execution_count="6">
+<div id="aff65770" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -446,13 +447,13 @@ Surya Vardhan Dama<br> Rajitha Reddy Tiruthani<br> Melika Sharifi<br> Maksim Kul
 <h2>Approach</h2>
 <p><br> 1. We investigated correlations between movie features and earnings, and by utilizing IMDb’s API to supplement dataset with box office information.<br><br> 2. which Populated a new “earnings” column using IMDb’s API and unique movie identifiers (tconst), enabling analysis without exposing API key or executing real-time calls.<br><br> 3. Generate earnings data once and update a copy of the dataset in the /data folder to avoid repeated API calls and ensure efficiency.<br><br> 4. Ensure data security by not exposing the API key and minimize processing time by pre-fetching earnings data.</p>
 </section>
-<section id="plot-6" class="slide level2">
-<h2>Plot</h2>
+<section id="year-earnings-relationship-1940-2020" class="slide level2" style="font-size: 0.65em;">
+<h2>Year-earnings relationship 1940-2020</h2>
 <div class="panel-tabset">
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Plot</a></li><li><a href="#tabset-4-2">Insights</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<div id="dad876ac" class="cell" data-execution_count="7">
+<div id="ba28ee30" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -471,13 +472,13 @@ Surya Vardhan Dama<br> Rajitha Reddy Tiruthani<br> Melika Sharifi<br> Maksim Kul
 </div>
 </div>
 </section>
-<section id="plot-8" class="slide level2">
-<h2>Plot</h2>
+<section id="relation-between-the-average-rating-and-its-earnings" class="slide level2" style="font-size: 0.7em;">
+<h2>Relation between the average rating and its earnings</h2>
 <div class="panel-tabset">
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Plot</a></li><li><a href="#tabset-5-2">Insights</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
-<div id="64a2f05c" class="cell" data-execution_count="8">
+<div id="2ca3bf98" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -496,13 +497,13 @@ Surya Vardhan Dama<br> Rajitha Reddy Tiruthani<br> Melika Sharifi<br> Maksim Kul
 </div>
 </div>
 </section>
-<section id="plot-10" class="slide level2">
-<h2>Plot</h2>
+<section id="average-earnings-by-movie-genre" class="slide level2" style="font-size: 0.7em;">
+<h2>Average Earnings by Movie Genre</h2>
 <div class="panel-tabset">
 <ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Plot</a></li><li><a href="#tabset-6-2">Insights</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
-<div id="5bb7971b" class="cell" data-execution_count="9">
+<div id="ebdb5e3e" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -520,13 +521,13 @@ Surya Vardhan Dama<br> Rajitha Reddy Tiruthani<br> Melika Sharifi<br> Maksim Kul
 </div>
 </div>
 </section>
-<section id="plot-12" class="slide level2">
-<h2>Plot</h2>
+<section id="average-earnings-by-holiday-type" class="slide level2" style="font-size: 0.7em;">
+<h2>Average Earnings by Holiday Type</h2>
 <div class="panel-tabset">
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Plot</a></li><li><a href="#tabset-7-2">Insights</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<div id="dba7e870" class="cell" data-execution_count="10">
+<div id="1334d4ca" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -554,13 +555,19 @@ Surya Vardhan Dama<br> Rajitha Reddy Tiruthani<br> Melika Sharifi<br> Maksim Kul
 <h2>References</h2>
 <p>[1] Title: Holiday Movies, Source: tidytuesday, Link: <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-12-12/readme.md" class="uri">https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-12-12/readme.md</a></p>
 <p>[2] Quarto, For documentation and presentation - <a href="https://quarto.org/docs/reference/formats/html.html">Quarto</a></p>
-<p>[3] Our Presentation Background Image - Link: <a href="https://www.freepik.com/free-photo/takeaway-drinking-glass-with-straw-3d-glasses-cinema-tickets-popcorn-box-against-white-backdrop_4822391.htm#query=holiday%20movies&amp;position=9&amp;from_view=keyword&amp;track=ais&amp;uuid=e2271536-4208-428c-b1be-bb42104bece5" class="uri">https://www.freepik.com/free-photo/takeaway-drinking-glass-with-straw-3d-glasses-cinema-tickets-popcorn-box-against-white-backdrop_4822391.htm#query=holiday%20movies&amp;position=9&amp;from_view=keyword&amp;track=ais&amp;uuid=e2271536-4208-428c-b1be-bb42104bece5</a></p>
+<p>[3] Our Presentation Background Image - Link: <a href="https://www.freepik.com/free-photo/takeaway-drinking-glass-with-straw-3d-glasses-cinema-tickets-popcorn-box-against-white-backdrop_4822391.htm" class="uri">https://www.freepik.com/free-photo/takeaway-drinking-glass-with-straw-3d-glasses-cinema-tickets-popcorn-box-against-white-backdrop_4822391.htm</a></p>
+<p>[4] Our thank you Image - <a href="https://boslean.weebly.com/blog/powerpoint-transparent-png-thank-you-gif" class="uri">https://boslean.weebly.com/blog/powerpoint-transparent-png-thank-you-gif</a></p>
 </section>
-<section id="thank-you" class="slide level2" style="text-align: center">
-<h2>Thank you</h2>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/thank-you-547794.gif" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 
-
-<img data-src="images/thankyou.gif" class="quarto-figure quarto-figure-center r-stretch"><div class="quarto-auto-generated-content">
+<div class="quarto-auto-generated-content">
+<p><img src="images/logo.jpeg" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
