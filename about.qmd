@@ -16,3 +16,5 @@ This project was developed by **Seasons-Screenings** For [INFO 523 - Data Mining
 -   Rajitha Reddy Tiruthani: 1st year, Graduate Student, Data Science, School of Information.
 
 -   Gowtham Gopalakrishnan: 1st year, Graduate Student, Data Science, School of Information.
+
+- Melika Akbarsharifi: 2nd year, Graduate Student, Electrical and Computer Engineering, School of Engineering
