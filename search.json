@@ -84,13 +84,6 @@
     "text": "Introduction\n\nOur Project explores a dataset covering holiday-themed films from 1929 to 2022, including details like movie titles, release years, runtime, genres, ratings, and holiday associations.\nThe dataset includes crucial information such as movie titles, release years, runtime, genres, ratings, and indicators for major holidays like Christmas, Hanukkah, and Kwanzaa.\nOur analysis looked at how popular holiday movies have changed from the 1920s to the 2020s, showing how audience tastes and movie styles evolved.\nWe also examined, which types of holiday movies tend to earn the most money, helping filmmakers and studios understand what audiences are willing to pay for."
   },
   {
-    "objectID": "presentation.html#question-1",
-    "href": "presentation.html#question-1",
-    "title": "Exploring Trends in Holiday Movies",
-    "section": "Question 1:",
-    "text": "Question 1:\nHow have popular movies changed over the decades?"
-  },
-  {
     "objectID": "presentation.html#approach",
     "href": "presentation.html#approach",
     "title": "Exploring Trends in Holiday Movies",
@@ -102,14 +95,21 @@
     "href": "presentation.html#plot",
     "title": "Exploring Trends in Holiday Movies",
     "section": "Plot",
-    "text": "Plot\n::: panel-tabset #### Plot {style=“font-size: 0.65em;”}\n\n\n\n\n\n\n\n\n\nInsights\n\nFrom the genre distribution bar plot, we can observe that Comedy and Drama are the most common genres among top-rated holiday movies.\nThis predominance might suggest that audiences tend to prefer lighter and more emotionally resonant stories during holiday seasons, which aligns with the festive and familial spirit of such times.\nFamily and Romance genres follow, which further emphasizes the desire for movies that bring people together, reflecting typical holiday themes centered around love, family, and togetherness.\n\nPlot\n\n\n\n\n\n\n\n\n\nInsights\n\nThe plot showcasing the relationship between movie runtime and rating quartile indicates that there isn’t a strong preference for movie length within the top rating quartiles.\nWhile there is a concentration of movies with runtimes around 100 minutes (typical for standard feature films), the presence of highly-rated movies with longer runtimes suggests that a film’s duration is less significant to its reception compared to other factors such as story, acting, and direction.\nHowever, the spread of runtimes in the 3rd quartile is narrower than in the 4th, hinting that exceptionally well-received movies might have a tighter consistency in their duration.\n\nPlot\n\n\n\n\n\n\n\n\n\nInsights\n\nThe line plot correlating title length with average rating shows a more erratic relationship.\nWhile no clear trend is discernible, there appears to be a slight tendency for movies with shorter titles to have higher ratings, although there are exceptions at various points.\nThis might imply that conciseness in a title could be associated with a film’s memorability or marketing effectiveness, but the numerous outliers make it difficult to draw a definitive conclusion."
+    "text": "Plot\n::: panel-tabset ### Plot {style=“font-size: 0.65em;”}\n\nInsights\n\nFrom the genre distribution bar plot, we can observe that Comedy and Drama are the most common genres among top-rated holiday movies.\nThis predominance might suggest that audiences tend to prefer lighter and more emotionally resonant stories during holiday seasons, which aligns with the festive and familial spirit of such times.\nFamily and Romance genres follow, which further emphasizes the desire for movies that bring people together, reflecting typical holiday themes centered around love, family, and togetherness."
   },
   {
-    "objectID": "presentation.html#question-2",
-    "href": "presentation.html#question-2",
+    "objectID": "presentation.html#plot-1",
+    "href": "presentation.html#plot-1",
     "title": "Exploring Trends in Holiday Movies",
-    "section": "Question 2:",
-    "text": "Question 2:\n**What kind of holiday movies earn the most money?"
+    "section": "Plot",
+    "text": "Plot\n::: panel-tabset ### Plot {style=“font-size: 0.65em;”}\n\nInsights\n\nThe plot showcasing the relationship between movie runtime and rating quartile indicates that there isn’t a strong preference for movie length within the top rating quartiles.\nWhile there is a concentration of movies with runtimes around 100 minutes (typical for standard feature films), the presence of highly-rated movies with longer runtimes suggests that a film’s duration is less significant to its reception compared to other factors such as story, acting, and direction.\nHowever, the spread of runtimes in the 3rd quartile is narrower than in the 4th, hinting that exceptionally well-received movies might have a tighter consistency in their duration."
+  },
+  {
+    "objectID": "presentation.html#plot-2",
+    "href": "presentation.html#plot-2",
+    "title": "Exploring Trends in Holiday Movies",
+    "section": "Plot",
+    "text": "Plot\n::: panel-tabset ### Plot {style=“font-size: 0.65em;”}\n\nInsights\n\nThe line plot correlating title length with average rating shows a more erratic relationship.\nWhile no clear trend is discernible, there appears to be a slight tendency for movies with shorter titles to have higher ratings, although there are exceptions at various points.\nThis might imply that conciseness in a title could be associated with a film’s memorability or marketing effectiveness, but the numerous outliers make it difficult to draw a definitive conclusion."
   },
   {
     "objectID": "presentation.html#approach-1",
@@ -123,7 +123,28 @@
     "href": "presentation.html#plot-3",
     "title": "Exploring Trends in Holiday Movies",
     "section": "Plot",
-    "text": "Plot\n::: panel-tabset #### Plot {style=“font-size: 0.65em;”}\n\n\n\n\n\n\n\n\n\nInsights\n\nBy observing, in the plot pre-1980 movies exhibit a higher frequency of outliers.\nThese outliers represent films with either exceptionally high earnings or minimal returns.\n\nPlot\n\n\n\n\n\n\n\n\n\nInsights\n\nAs we may intuitively expect from the above plot, there indeed seems to be a correlation between the average rating of a movie and its earnings.\nThe more people like the movie, the more tickets it sells.\n\nPlot\n\n\n\n\n\n\n\n\n\nInsights\n\nThe chart displays a range of genres from “Reality-TV” at the top, suggesting the highest average earnings, to “Thriller” at the bottom, indicating the lowest earnings within this visual. #### Plot {style=“font-size: 0.7em;”}\n\n\n\n\n\n\n\n\n\n\nInsights\n\nThe bar chart illustrates that hanukkah-themed movies are the highest earners, followed by films about christmas in general.\nMovies about Holiday and Kwanzaa have notably lower average earnings, suggesting that hanukkah films are the most commercially successful within holiday genres."
+    "text": "Plot\n\nPlotInsights\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBy observing, in the plot pre-1980 movies exhibit a higher frequency of outliers.\nThese outliers represent films with either exceptionally high earnings or minimal returns."
+  },
+  {
+    "objectID": "presentation.html#plot-5",
+    "href": "presentation.html#plot-5",
+    "title": "Exploring Trends in Holiday Movies",
+    "section": "Plot",
+    "text": "Plot\n\nPlotInsights\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAs we may intuitively expect from the above plot, there indeed seems to be a correlation between the average rating of a movie and its earnings.\nThe more people like the movie, the more tickets it sells."
+  },
+  {
+    "objectID": "presentation.html#plot-7",
+    "href": "presentation.html#plot-7",
+    "title": "Exploring Trends in Holiday Movies",
+    "section": "Plot",
+    "text": "Plot\n\nPlotInsights\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe chart displays a range of genres from “Reality-TV” at the top, suggesting the highest average earnings, to “Thriller” at the bottom, indicating the lowest earnings within this visual."
+  },
+  {
+    "objectID": "presentation.html#plot-9",
+    "href": "presentation.html#plot-9",
+    "title": "Exploring Trends in Holiday Movies",
+    "section": "Plot",
+    "text": "Plot\n\nPlotInsights\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe bar chart illustrates that hanukkah-themed movies are the highest earners, followed by films about christmas in general.\nMovies about Holiday and Kwanzaa have notably lower average earnings, suggesting that hanukkah films are the most commercially successful within holiday genres."
   },
   {
     "objectID": "presentation.html#conclusion",
