@@ -11,7 +11,7 @@ This project was developed by **Seasons-Screenings** For [INFO 523 - Data Mining
 
 -   Surya Vardhan Dama: 1st year, Graduate Student, Data Science, School of Information.
 
--   Team member 3: One sentence description of Team member 3 (e.g., year, major, etc.).
+-   Toluwanimi Olorunnisola: 2nd year, Graduate Student, Systems and Industrial Engineering department
 
 -   Rajitha Reddy Tiruthani: 1st year, Graduate Student, Data Science, School of Information.
 
