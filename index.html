@@ -486,6 +486,10 @@ Name: year, dtype: float64</code></pre>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            bins <span class="op">=</span> <span class="dv">15</span>, height <span class="op">=</span> <span class="dv">5</span>, aspect <span class="op">=</span> <span class="dv">8</span><span class="op">/</span><span class="dv">5</span>)</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Histogram of the Runtime Minutes of Movies'</span>)</span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/melikasharifi/Library/Python/3.9/lib/python/site-packages/seaborn/axisgrid.py:123: UserWarning: The figure layout has changed to tight
+  self._figure.tight_layout(*args, **kwargs)</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>count    2076.000000
 mean       78.441233
@@ -496,10 +500,6 @@ min         1.000000
 75%        90.000000
 max       288.000000
 Name: runtime_minutes, dtype: float64</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/Users/melikasharifi/Library/Python/3.9/lib/python/site-packages/seaborn/axisgrid.py:123: UserWarning: The figure layout has changed to tight
-  self._figure.tight_layout(*args, **kwargs)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1153,7 +1153,7 @@ def get_earnings(tconst)
 </div>
 </div>
 <p>As we may intuitively expect from the above plot, there indeed seems to be a correlation between the average rating of a movie and its earnings. The more people like the movie, the more tickets it sells.</p>
-<div id="88a5f5ee" class="cell" data-execution_count="20">
+<div id="f800d159" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the genre data with the earnings data on the common key (assuming it's 'tconst' here)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>merged_data <span class="op">=</span> pd.merge(new_genres, df_earnings, on<span class="op">=</span><span class="st">'tconst'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
