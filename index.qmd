@@ -455,4 +455,4 @@ plt.show()
 
 ```
 
-The bar chart illustrates that hanukkah-themed movies are the highest earners, followed by films about holidays in general. Movies about Holiday and Kwanzaa have notably lower average earnings, suggesting that hanukkah films are the most commercially successful within holiday genres.
+The bar chart illustrates that hanukkah-themed movies are the highest earners, followed by films about christmas in general. Movies about Holiday and Kwanzaa have notably lower average earnings, suggesting that hanukkah films are the most commercially successful within holiday genres.

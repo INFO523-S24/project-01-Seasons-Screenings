@@ -1,6 +1,6 @@
 ---
 title: "Exploring Trends in Holiday Movies"
-subtitle: "INFO 523 - Spring 2023 - Project 1"
+subtitle: "INFO 523 - Spring 2024 - Project 1"
 author: "Surya Vardhan Dama<br>
         Rajitha Reddy Tiruthani<br>
         Melika Sharifi<br>
@@ -18,6 +18,8 @@ format:
     theme:  ['data/customtheming.scss']
     transition: concave
     background-transition: fade
+    scrollable: true
+    logo: images/logo.jpeg
 
   
 editor: visual
@@ -87,7 +89,7 @@ df_earnings.head()
 3.The scatter plot illustrates trends in preferred movie lengths and title lengths throughout time by correlating movie duration and average rating, color-coded by title length.<br><br>
 4.Combining approaches reveals changes in industry trends and consumer tastes over decades in well-known Christmas films.
 
-## Plot
+## Most popular genres in highest-rated holiday films {style="font-size: 0.65em;"}
 ::: panel-tabset
 ### Plot {style="font-size: 0.65em;"}
 ```{python}
@@ -139,7 +141,7 @@ plt.show()
 - This predominance might suggest that audiences tend to prefer lighter and more emotionally resonant stories during holiday seasons, which aligns with the festive and familial spirit of such times. 
 - Family and Romance genres follow, which further emphasizes the desire for movies that bring people together, reflecting typical holiday themes centered around love, family, and togetherness.
 :::
-## Plot
+## The distribution of movie runtimes across different rating quartiles {style="font-size: 0.65em;"}
 ::: panel-tabset
 ### Plot {style="font-size: 0.65em;"}
 ```{python}
@@ -159,7 +161,7 @@ plt.show()
 - While there is a concentration of movies with runtimes around 100 minutes (typical for standard feature films), the presence of highly-rated movies with longer runtimes suggests that a film’s duration is less significant to its reception compared to other factors such as story, acting, and direction. 
 - However, the spread of runtimes in the 3rd quartile is narrower than in the 4th, hinting that exceptionally well-received movies might have a tighter consistency in their duration.
 :::
-## Plot
+## The relationship between the length of movie titles and their average ratings {style="font-size: 0.65em;"}
 ::: panel-tabset
 ### Plot {style="font-size: 0.65em;"}
 ```{python}
@@ -193,7 +195,7 @@ plt.show()
 3. Generate earnings data once and update a copy of the dataset in the /data folder to avoid repeated API calls and ensure efficiency.<br><br>
 4. Ensure data security by not exposing the API key and minimize processing time by pre-fetching earnings data.
 
-## Plot
+## Year-earnings relationship 1940-2020 {style="font-size: 0.65em;"}
 ::: panel-tabset
 ### Plot {style="font-size: 0.65em;"}
 
@@ -210,7 +212,7 @@ plt.show()
 - By observing, in the plot pre-1980 movies exhibit a higher frequency of outliers.
 - These outliers represent films with either exceptionally high earnings or minimal returns. 
 :::
-## Plot
+## Relation between the average rating and its earnings {style="font-size: 0.7em;"}
 ::: panel-tabset
 ### Plot {style="font-size: 0.7em;"}
 ```{python}
@@ -227,7 +229,7 @@ plt.show()
   the average rating of a movie and its earnings. 
 - The more people like the movie, the more tickets it sells.
 :::
-## Plot
+## Average Earnings by Movie Genre {style="font-size: 0.7em;"}
 ::: panel-tabset
 ### Plot {style="font-size: 0.7em;"}
 ```{python}
@@ -257,7 +259,7 @@ plt.show()
 - The chart displays a range of genres from “Reality-TV” at the top, suggesting the highest average 
   earnings, to “Thriller” at the bottom, indicating the lowest earnings within this visual.
 :::
-## Plot
+## Average Earnings by Holiday Type {style="font-size: 0.7em;"}
 ::: panel-tabset
 ### Plot {style="font-size: 0.7em;"}
 ```{python}
@@ -303,7 +305,9 @@ The highest-grossing movies are those with Hanukkah themes, followed by traditio
 
 \[2\] Quarto, For documentation and presentation - [Quarto](https://quarto.org/docs/reference/formats/html.html)
 
-\[3\] Our Presentation Background Image - Link: <https://www.freepik.com/free-photo/takeaway-drinking-glass-with-straw-3d-glasses-cinema-tickets-popcorn-box-against-white-backdrop_4822391.htm#query=holiday%20movies&position=9&from_view=keyword&track=ais&uuid=e2271536-4208-428c-b1be-bb42104bece5>
+\[3\] Our Presentation Background Image - Link: <https://www.freepik.com/free-photo/takeaway-drinking-glass-with-straw-3d-glasses-cinema-tickets-popcorn-box-against-white-backdrop_4822391.htm>
 
-## Thank you {style="text-align: center"}
-![](images/thankyou.gif){fig-align="center"}
+\[4\] Our thank you Image - <https://boslean.weebly.com/blog/powerpoint-transparent-png-thank-you-gif>
+
+## 
+![](images/thank-you-547794.gif){fig-align="center"}
