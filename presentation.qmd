@@ -79,7 +79,7 @@ df_earnings.head()
 
 # Question 1: {style="font-size: 0.7em;"}
 
-##How have popular movies changed over the decades?
+## How have popular movies changed over the decades?
 
 ## Approach {style="font-size: 0.7em;"}
 
@@ -185,7 +185,7 @@ plt.show()
 :::
 # Question 2:  {style="font-size: 0.7em;"}
 
-##What kind of holiday movies earn the most money?
+## What kind of holiday movies earn the most money?
 
 ## Approach {style="font-size: 0.7em;"}
 
