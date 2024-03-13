@@ -459,3 +459,8 @@ plt.show()
 ```
 
 The bar chart illustrates that hanukkah-themed movies are the highest earners, followed by films about christmas in general. Movies about Holiday and Kwanzaa have notably lower average earnings, suggesting that hanukkah films are the most commercially successful within holiday genres.
+
+
+Discussion:
+
+Several insights on the Christmas film industry are revealed by the analysis. First off, a noticeable spike in film releases occurs between 2000 and 2020, suggesting a rise in recent decades' worth of production. Second, audience tastes are important; higher-rated films are associated with higher revenues, even if there is no clear pattern connecting movie runtime or title length to earnings. Additionally, the most popular holiday films are mostly in the comedy and drama genres, indicating a predilection for happy, uplifting tales throughout the holiday season. Unexpectedly, the highest-grossing films are those with a Hanukkah theme, demonstrating the commercial feasibility of a variety of holiday storylines.
