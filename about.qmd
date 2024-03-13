@@ -14,3 +14,5 @@ This project was developed by **Seasons-Screenings** For [INFO 523 - Data Mining
 -   Team member 3: One sentence description of Team member 3 (e.g., year, major, etc.).
 
 -   Rajitha Reddy Tiruthani: 1st year, Graduate Student, Data Science, School of Information.
+
+-   Gowtham Gopalakrishnan: 1st year, Graduate Student, Data Science, School of Information.
