@@ -84,6 +84,13 @@
     "text": "Introduction\n\nOur Project explores a dataset covering holiday-themed films from 1929 to 2022, including details like movie titles, release years, runtime, genres, ratings, and holiday associations.\nThe dataset includes crucial information such as movie titles, release years, runtime, genres, ratings, and indicators for major holidays like Christmas, Hanukkah, and Kwanzaa.\nOur analysis looked at how popular holiday movies have changed from the 1920s to the 2020s, showing how audience tastes and movie styles evolved.\nWe also examined, which types of holiday movies tend to earn the most money, helping filmmakers and studios understand what audiences are willing to pay for."
   },
   {
+    "objectID": "presentation.html#how-have-popular-movies-changed-over-the-decades",
+    "href": "presentation.html#how-have-popular-movies-changed-over-the-decades",
+    "title": "Exploring Trends in Holiday Movies",
+    "section": "How have popular movies changed over the decades?",
+    "text": "How have popular movies changed over the decades?"
+  },
+  {
     "objectID": "presentation.html#approach",
     "href": "presentation.html#approach",
     "title": "Exploring Trends in Holiday Movies",
@@ -110,6 +117,13 @@
     "title": "Exploring Trends in Holiday Movies",
     "section": "The relationship between the length of movie titles and their average ratings",
     "text": "The relationship between the length of movie titles and their average ratings\n\nPlotInsights\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe line plot correlating title length with average rating shows a more erratic relationship.\nWhile no clear trend is discernible, there appears to be a slight tendency for movies with shorter titles to have higher ratings, although there are exceptions at various points.\nThis might imply that conciseness in a title could be associated with a film’s memorability or marketing effectiveness, but the numerous outliers make it difficult to draw a definitive conclusion."
+  },
+  {
+    "objectID": "presentation.html#what-kind-of-holiday-movies-earn-the-most-money",
+    "href": "presentation.html#what-kind-of-holiday-movies-earn-the-most-money",
+    "title": "Exploring Trends in Holiday Movies",
+    "section": "What kind of holiday movies earn the most money?",
+    "text": "What kind of holiday movies earn the most money?"
   },
   {
     "objectID": "presentation.html#approach-1",
