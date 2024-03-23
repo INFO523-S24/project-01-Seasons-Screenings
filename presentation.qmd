@@ -195,9 +195,9 @@ plt.show()
 3. Generate earnings data once and update a copy of the dataset in the /data folder to avoid repeated API calls and ensure efficiency.<br><br>
 4. Ensure data security by not exposing the API key and minimize processing time by pre-fetching earnings data.
 
-## Year-earnings relationship 1940-2020 {style="font-size: 0.65em;"}
+## Year-earnings relationship 1940-2020 {style="font-size: 0.7em;"}
 ::: panel-tabset
-### Plot {style="font-size: 0.65em;"}
+### Plot {style="font-size: 0.7em;"}
 
 ```{python}
 data_copy = df_earnings.copy()
