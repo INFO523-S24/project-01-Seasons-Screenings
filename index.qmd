@@ -42,16 +42,20 @@ import missingno as msno
 ```{python}
 #| label: load-holiday-movies
 
+# Load and display the dataset
 df = pd.read_csv('data/holiday_movies.csv')
-# display the first five rows of the dataset
 df.head()
 ```
 
 ```{python}
 #| label: describe-data-variables-and-data-types
 
-# check data info
+# Check data types and missing values
 df.info()
+df.isnull().sum()
+msno.bar(df, figsize=(7, 5))
+plt.tight_layout()
+plt.show()
 ```
 
 The data has 14 columns with varying data types. 
@@ -87,6 +91,8 @@ print(df['year'].describe())
 sns.displot(data = df, x = "year", 
             bins = 15, height = 5, aspect = 8/5)
 plt.title('Histogram of the Year of Movies')
+plt.xlabel('Release Year')  # Added for clarity
+plt.ylabel('Number of Movies')  # Added to specify what is being counted
 plt.show()
 ```
 
@@ -98,9 +104,10 @@ The histogram above shows an interesting insight: a significant number of movies
 print(df['runtime_minutes'].describe())
 
 # histogram
-sns.displot(data = df, x = "runtime_minutes", 
-            bins = 15, height = 5, aspect = 8/5)
+sns.displot(data=df, x="runtime_minutes", bins=15, height=5, aspect=8/5)
 plt.title('Histogram of the Runtime Minutes of Movies')
+plt.xlabel('Runtime (minutes)')  # Specifying units
+plt.ylabel('Frequency')  # What the histogram's bars represent
 plt.show()
 ```
 
@@ -112,9 +119,10 @@ The histogram above shows that most movies have a run time between 50 and 100 mi
 print(df['average_rating'].describe())
 
 # histogram
-sns.displot(data = df, x = "average_rating", 
-            bins = 15, height = 5, aspect = 8/5)
+sns.displot(data=df, x="average_rating", bins=15, height=5, aspect=8/5)
 plt.title('Histogram of the Average Rating of Movies')
+plt.xlabel('Average Rating')  # Clear labeling
+plt.ylabel('Count')  # Indicating the count of movies within each bin
 plt.show()
 ```
 
@@ -238,7 +246,7 @@ top_movies.head()
 # Count the frequency of each genre within the 3rd and 4th rating quartiles
 genre_counts = merged_df['genres_y'].value_counts()
 plt.figure(figsize=(12, 8))
-sns.barplot(x = genre_counts.values, y = genre_counts.index, hue = genre_counts.index, palette = 'viridis', legend = False)
+sns.barplot(x=genre_counts.values, y=genre_counts.index, hue=genre_counts.index, palette='viridis', legend=False)
 plt.xlabel('Number of Movies')
 plt.ylabel('Genre')
 plt.title('Most Common Genres Among Top-Rated Holiday Movies')
@@ -351,7 +359,7 @@ We load the data in and convert the values into millions of USD by dividing ever
 df_earnings = pd.read_csv('data/holiday_movies_earnings.csv')
 
 # earnings in million dollars
-df_earnings['earnings'] = df_earnings['earnings'] // 1000000 
+df_earnings['earnings'] = df_earnings['earnings'] // 1000000
 df_earnings.head()
 ```
 
