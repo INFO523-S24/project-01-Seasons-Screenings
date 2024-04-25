@@ -4,9 +4,9 @@ project:
 website:
   title: "<img src='/images/logo.jpeg' alt='Holiday Movies' style='width: 2.6em; height: 2.2em; border-radius: 30%;'> <b>Exploring Trends in Holiday Movies</b>"
   navbar:
-    right:
-      - icon: github
-        href: https://github.com/INFO523-S24/project-01
+    #right:
+      #- icon: github
+        #href: https://github.com/INFO523-S24/project-01
     left:
       - text: Project
         href: index.qmd
